@@ -63,7 +63,7 @@
                 android:layout_marginLeft="15dp"
                 android:layout_marginTop="2dp"
                 android:lineSpacingExtra="8dp"
-                android:text="4、请务必绑定正确的银行卡，否则无法到账！"
+                android:text="4、请务必绑定正确的提现信息，否则无法到账！"
                 android:textColor="#ffffffff"
                 android:textSize="12sp" />
 
@@ -83,7 +83,7 @@
                 android:layout_marginLeft="15dp"
                 android:layout_marginTop="2dp"
                 android:lineSpacingExtra="8dp"
-                android:text="6、银行卡绑定错误请在客服中心联系客服更正！"
+                android:text="6、提现信息绑定错误 请在客服中心联系客服更正！"
                 android:textColor="#ffffffff"
                 android:textSize="12sp" />
 
@@ -138,6 +138,20 @@
                     android:paddingLeft="90dp"
                     android:paddingRight="90dp"
                     android:text="提现到银行卡"
+                    android:textColor="@color/white"
+                    android:textSize="15sp" />
+
+                <Button
+                    android:id="@+id/btn_confirm_zfb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="206dp"
+                    android:layout_marginBottom="25dp"
+                    android:background="@drawable/mine_menu4_tx_shape"
+                    android:paddingLeft="90dp"
+                    android:paddingRight="90dp"
+                    android:text="提现到支付宝"
                     android:textColor="@color/white"
                     android:textSize="15sp" />
 

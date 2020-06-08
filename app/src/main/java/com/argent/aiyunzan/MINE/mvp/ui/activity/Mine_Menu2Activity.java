@@ -85,7 +85,7 @@ public class Mine_Menu2Activity extends BaseActivity<Mine_Menu2Presenter> implem
     @Override
     protected void onResume() {
         super.onResume();
-        toolbar_title.setText("我要提现");
+        toolbar_title.setText("立即提现");
     }
 
     private void loadPostData() {
