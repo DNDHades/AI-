@@ -125,7 +125,7 @@ public class Mine_Menu3Activity extends BaseActivity<Mine_Menu3Presenter> implem
     @Override
     protected void onResume() {
         super.onResume();
-        toolbar_title.setText("绑定银行卡");
+        toolbar_title.setText("完善提现资料");
     }
 
 

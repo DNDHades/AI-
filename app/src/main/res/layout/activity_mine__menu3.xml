@@ -254,8 +254,8 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="18.5dp"
                 android:text="温馨提示*"
-                android:textColor="#ffffffff"
-                android:textSize="12sp" />
+                android:textColor="#ffff0000"
+                android:textSize="15sp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -263,38 +263,38 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="12dp"
                 android:lineSpacingExtra="11dp"
-                android:text="1、为了您的资金安全，切记保管好验证码，不要向他人透露!"
-                android:textColor="#ffffffff"
-                android:textSize="12sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="2dp"
-                android:lineSpacingExtra="11dp"
-                android:text="2、请先选择开户行名称，再输入相对应的银行卡号!"
-                android:textColor="#ffffffff"
-                android:textSize="12sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="2dp"
-                android:lineSpacingExtra="11dp"
-                android:text="3、确认输入银行卡无误后点击确定绑定银行卡！"
-                android:textColor="#ffffffff"
-                android:textSize="12sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="10dp"
-                android:text="4、银行卡绑定错误请在客服中心联系客服更正！"
+                android:text="1、再三检查所有信息正确之后再点确定绑定！"
                 android:textColor="#ffff0000"
-                android:textSize="12sp" />
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="2dp"
+                android:lineSpacingExtra="11dp"
+                android:text="2、如填写资料错误！请及时在客服中心联系客服更正！"
+                android:textColor="#ffff0000"
+                android:textSize="15sp" />
+
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginLeft="20dp"-->
+<!--                android:layout_marginTop="2dp"-->
+<!--                android:lineSpacingExtra="11dp"-->
+<!--                android:text="3、确认输入银行卡无误后点击确定绑定银行卡！"-->
+<!--                android:textColor="#ffff0000"-->
+<!--                android:textSize="12sp" />-->
+
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginLeft="20dp"-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                android:text="4、银行卡绑定错误请在客服中心联系客服更正！"-->
+<!--                android:textColor="#ffff0000"-->
+<!--                android:textSize="12sp" />-->
 
             <com.argent.aiyunzan.common.widget.ObserverButton
                 android:id="@+id/btn_login"
