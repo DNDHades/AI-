@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    android:orientation="vertical">
+
+    <include layout="@layout/include_title" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#160A6A"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_wxnumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="16dp"
+            android:textColor="#ffffffff"
+            android:textSize="15sp"
+            tools:text="微信客服：" />
+
+        <ImageView
+            android:id="@+id/iv_wxcode"
+            android:layout_width="135.5dp"
+            android:layout_height="135.5dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="16dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="22.5dp"
+            android:gravity="center"
+            android:text="长按二维码保存到相册"
+            android:textColor="#ffffffff"
+            android:textSize="15sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="1.5dp"
+            android:gravity="center"
+            android:text="并在微信中扫一扫添加好友"
+            android:textColor="#ffffffff"
+            android:textSize="15sp" />
+
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

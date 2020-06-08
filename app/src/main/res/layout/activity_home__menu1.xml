@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    android:orientation="vertical">
+
+    <include layout="@layout/include_title" />
+
+    <ScrollView
+        android:background="#160A6A"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/home_menu1_1" />
+
+                <ImageView
+                    android:layout_width="107dp"
+                    android:layout_height="107dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="16dp"
+                    android:src="@drawable/splash_logo" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5.5dp"
+                android:orientation="vertical"
+                android:paddingLeft="12.5dp"
+                android:paddingRight="12.5dp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scaleType="center"
+                    android:src="@drawable/home_menu1_2" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="	  AI云赞是以人工智能为基础，5G网络的速度，在短视频热潮的风口上，通过IP链接自动识别环境下研发出的一款全新短视频自动点赞+关注的智能系统。"
+                    android:textColor="#ffffffff"
+                    android:textSize="13sp" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12.5dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/home_menu1_3" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12.5dp"
+                    android:text="	  AI主要依托于算法，成功的算法需要三样东西：大数据、强大的电脑运算能力、优秀的AI算法工程师。其中最重要的是数据，因为就深度学习而言，数据量越多越好，越能进行正确的识别和分析，从前的专家时代正在被数据时代所代替。这些丰富数据可以让各家AI公司切实了解用户特点，结合深度学习算法，为用户量身打造出各种个性化服务。
+"
+                    android:textColor="#ffffffff"
+                    android:textSize="13sp" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12.5dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/home_menu1_4" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12.5dp"
+                    android:text="从1G时代的大哥大，2G时代的数字手机，3G时代的智能手机+网页，到4G时代的短视频火热发展。截至目前，5G手机和技术商用，呼之欲出，万众瞩目。"
+                    android:textColor="#ffffffff"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12.5dp"
+                    android:text="5G时代的到来可以确定的是：万物联网、云计算、人工智能、虚拟现实等，当然较受瞩目的少不了短视频。某种程度上，我们可以说，3G时代开启了移动短视频的第一次热潮，4G时代开启了第二次热潮，而未来的5G时代，将引发新的短视频发展的蓬勃井喷期。"
+                    android:textColor="#ffffffff"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12.5dp"
+                    android:text="5G实际上解决了人与物的连接，将为网络服务商的短视频产品，带来规模经济增长的可能性，第一批找到5G时代短视频新玩法、新盈利模式的互联网企业，将得到巨大红利，并且有望成为新的王者。5G时代的网红，将借助物联网、人工智能、虚拟现实、增强现实等技术实时进行更具身临其境的直播，人们在游戏界面、智能手机中，就可以获得更加逼真的实时立体体验。"
+                    android:textColor="#ffffffff"
+                    android:textSize="13sp" />
+
+
+                <ImageView
+                    android:layout_width="199dp"
+                    android:layout_height="199dp"
+                    android:layout_gravity="center_horizontal"
+                    android:scaleType="center"
+                    android:src="@drawable/home_menu1_5" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12.5dp"
+                    android:text="	  AI云赞是国内人工智能产业的领跑者，在国内率先从事智能系统开发掌握了尖端的技术 ，凭借强大的企业实力，用顶尖的技术团队研发出人工智能识别系统，是国内智能系统领域的佼佼者。在这流量为王的年代只要抓住了风口，抓住了流量就是掌握了财富。在公司不断的努力专研下成功开发出了一款针对短视频智能浏览，点赞，关注，评论等多功能为一体的智能系统。并且与短视频主流平台达成战略合作。
+"
+                    android:textColor="#ffffffff"
+                    android:textSize="13sp" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12.5dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/home_menu1_6" />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12.5dp"
+                    android:layout_marginBottom="33.5dp"
+                    android:text="	  AI云赞运用云数据智能算法链接指定IP自动识别为短视频用户自动领取任务，全程托管一键启动完成自动为用户浏览视频，点赞，关注，评论。智能系统完成任务后将佣金秒结用户，平台将其流量收益的98%回馈给购买AI领袖智能系统，从而实现玩手机就能变现实现共赢。同时公司还正在研发智能教育领域系统，链接APP后学生在家里在线就能学习不同层次书籍，通过浏览我们的智能系统能自动识别出自家的孩子知识点的不足，自动针对不足的知识点进行系统的辅导学习，让孩子在家就能享受到专家级老师的教育。让您家庭的更美好！"
+                    android:textColor="#ffffffff"
+                    android:textSize="13sp" />
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scaleType="fitXY"
+                android:src="@drawable/take_main_1" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="12dp"
+                android:text="抽奖中心"
+                android:textColor="#ffffffff"
+                android:textSize="18sp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="50dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/take_main_2" />
+
+            <ImageView
+                android:layout_width="340dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="250dp"
+                android:src="@drawable/jb" />
+
+            <ImageView
+                android:layout_width="198dp"
+                android:layout_height="198dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="242dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/take_main_3" />
+
+            <com.argent.aiyunzan.common.widget.luckpan.LuckPan
+                android:id="@+id/lp_pan"
+                android:layout_width="180dp"
+                android:layout_height="180dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="251dp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="320dp"
+                android:src="@drawable/take_main_5" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="324dp"
+                android:text="点击"
+                android:textColor="@color/white"
+                android:textSize="13sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="338dp"
+                android:text="抽奖"
+                android:textColor="@color/white"
+                android:textSize="13sp" />
+
+            <ImageView
+                android:id="@+id/iv_take"
+                android:layout_width="85dp"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="290dp"
+                android:src="@drawable/take_main_4" />
+
+            <TextView
+                android:id="@+id/tv_wdtd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="490dp"
+                android:background="@drawable/take_main_click_shape"
+                android:paddingLeft="15.5dp"
+                android:paddingTop="7dp"
+                android:paddingRight="15.5dp"
+                android:paddingBottom="7dp"
+                android:text="查看我的团队"
+                android:textColor="@color/white"
+                android:textSize="12sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="530dp"
+                android:text="抽奖规则"
+                android:textColor="#ffffffff"
+                android:textSize="16sp" />
+
+
+            <TextView
+                android:id="@+id/tv_share_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="17dp"
+                android:layout_marginTop="566dp"
+                android:text="一、直推3人可获得抽奖机会"
+                android:textColor="@color/white"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="17dp"
+                android:layout_marginTop="596dp"
+                android:text="二、抽奖的奖励直接进入您的钱包可随时提现"
+                android:textColor="@color/white"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/tv_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="17dp"
+                android:layout_marginTop="626dp"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                tools:text="三、活动时间：2020年12月30日截止" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="541dp"
+                android:layout_marginRight="250dp"
+                android:background="@color/white" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="250dp"
+                android:layout_marginTop="541dp"
+                android:layout_marginRight="10dp"
+                android:background="@color/white" />
+
+        </RelativeLayout>
+    </ScrollView>
+
+</LinearLayout>

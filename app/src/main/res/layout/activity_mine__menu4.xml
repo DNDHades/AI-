@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    android:orientation="vertical">
+
+    <include layout="@layout/include_title" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#160A6A">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="66dp"
+                android:layout_marginLeft="21dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="21dp"
+                android:background="@drawable/mine_menu4_rectangle_shape">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="20dp"
+                    android:text="手机号："
+                    android:textColor="#C6DFFF" />
+
+                <EditText
+                    android:id="@+id/et_mobile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="120dp"
+                    android:background="@null"
+                    android:gravity="center_vertical"
+                    android:hint="请输入注册手机号"
+                    android:inputType="number"
+                    android:maxLength="11"
+                    android:textColor="@color/white"
+                    android:textColorHint="#C6DFFF"
+                    android:textSize="15sp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="66dp"
+                android:layout_marginLeft="21dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="21dp"
+                android:background="@drawable/mine_menu4_rectangle_shape">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="20dp"
+                    android:text="短信验证码："
+                    android:textColor="#C6DFFF" />
+
+                <EditText
+                    android:id="@+id/et_verifi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="120dp"
+                    android:background="@null"
+                    android:gravity="center_vertical"
+                    android:hint="请输入验证码"
+                    android:inputType="number"
+                    android:textColor="@color/white"
+                    android:textColorHint="#C6DFFF"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/tv_code"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="11dp"
+                    android:background="@drawable/mine_menu3_red_shape"
+                    android:enabled="false"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:paddingLeft="8dp"
+                    android:paddingTop="4dp"
+                    android:paddingRight="8dp"
+                    android:paddingBottom="4dp"
+                    android:text="获取"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="66dp"
+                android:layout_marginLeft="21dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="21dp"
+                android:background="@drawable/mine_menu4_rectangle_shape">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="20dp"
+                    android:text="新密码："
+                    android:textColor="#C6DFFF" />
+
+                <EditText
+                    android:id="@+id/et_newpass"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="120dp"
+                    android:background="@null"
+                    android:gravity="center_vertical"
+                    android:hint="请输入6位数字新密码"
+                    android:inputType="numberPassword"
+                    android:maxLength="6"
+                    android:textColor="@color/white"
+                    android:textColorHint="#C6DFFF"
+                    android:textSize="15sp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="66dp"
+                android:layout_marginLeft="21dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="21dp"
+                android:background="@drawable/mine_menu4_rectangle_shape">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="20dp"
+                    android:text="确认密码："
+                    android:textColor="#C6DFFF" />
+
+                <EditText
+                    android:id="@+id/et_pass"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="120dp"
+                    android:background="@null"
+                    android:gravity="center_vertical"
+                    android:hint="请再次输入6位数字新密码"
+                    android:inputType="numberPassword"
+                    android:maxLength="6"
+                    android:textColor="@color/white"
+                    android:textColorHint="#C6DFFF"
+                    android:textSize="15sp" />
+            </RelativeLayout>
+
+            <com.argent.aiyunzan.common.widget.ObserverButton
+                android:id="@+id/btn_confim"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="26.5dp"
+                android:layout_marginBottom="219dp"
+                android:background="@drawable/login_btn_enable"
+                android:enabled="false"
+                android:paddingLeft="85dp"
+                android:paddingTop="10.5dp"
+                android:paddingRight="85dp"
+                android:paddingBottom="10.5dp"
+                android:text="确定修改"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
