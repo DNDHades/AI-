@@ -51,7 +51,7 @@ public class MineMenu3HqxxRsp {
         private String card_name;
         private String card_number;
         private String username;
-        private String mobile;
+        private String alipay_accunt;
 
         public String getCard_name() {
             return card_name;
@@ -77,12 +77,12 @@ public class MineMenu3HqxxRsp {
             this.username = username;
         }
 
-        public String getMobile() {
-            return mobile;
+        public String getAlipay_accunt() {
+            return alipay_accunt;
         }
 
-        public void setMobile(String mobile) {
-            this.mobile = mobile;
+        public void setAlipay_accunt(String mobile) {
+            this.alipay_accunt = mobile;
         }
     }
 }

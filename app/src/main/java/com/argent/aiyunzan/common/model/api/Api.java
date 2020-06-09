@@ -76,7 +76,7 @@ public interface Api {
     //个人中心-提现记录接口
     String MINE_TXJL = "/public/index.php/dm/Index/werden_log";
     //个人中心-判断是否设置过提现密码及绑定过银行卡返回银行卡绑定信息
-    String MINE_YHKXX = "/public/index.php/dm/Index/get_blank_android";
+    String MINE_YHKXX = "/public/index.php/dm/Index/get_blank";
     //个人中心-绑定银行卡-提交数据
     String MINE_BDYHKTJ = "/public/index.php/dm/Index/submit_blank";
     //个人中心-修改提现密码

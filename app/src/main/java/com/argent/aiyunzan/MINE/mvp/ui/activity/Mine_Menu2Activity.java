@@ -91,7 +91,7 @@ public class Mine_Menu2Activity extends BaseActivity<Mine_Menu2Presenter> implem
             if (integer <= 0) {
                 ArmsUtils.makeText(this, "输入金额不正确");
             } else if (bankcard.equals("0")) {//用户是否已绑定银行卡,1已绑定,0未绑定
-                new MessageDialog(this, "提示", "提现请先绑定银行卡再操作提现").show();
+                new MessageDialog(this, "提示", "请先完善提现信息再操作提现！").show();
             } else if (bankcard.equals("1")) {//用户是否已绑定银行卡,1已绑定,0未绑定
                 edittextDialogUtils = new EdittextDialogUtils();
                 edittextDialogUtils.showCustomizeDialog(this, new EdittextDialogUtils.Listener() {
