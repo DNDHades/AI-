@@ -12,24 +12,20 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.argent.aiyunzan.MINE.di.component.DaggerMine_Menu3Component;
+import com.argent.aiyunzan.MINE.mvp.contract.Mine_Menu3Contract;
+import com.argent.aiyunzan.MINE.mvp.presenter.Mine_Menu3Presenter;
 import com.argent.aiyunzan.R;
 import com.argent.aiyunzan.common.model.bean.response.MineMenu3HqxxRsp;
 import com.argent.aiyunzan.common.utils.CheckBankCardUtils;
 import com.argent.aiyunzan.common.utils.OptionsPickerViewUtils;
-import com.argent.aiyunzan.common.utils.SmsTimeUtils;
 import com.argent.aiyunzan.common.utils.WeiboDialogUtils;
 import com.argent.aiyunzan.common.widget.CustomEditText;
 import com.argent.aiyunzan.common.widget.ObserverButton;
 import com.bigkoo.pickerview.view.OptionsPickerView;
-import com.blankj.utilcode.util.RegexUtils;
 import com.jess.arms.base.BaseActivity;
 import com.jess.arms.di.component.AppComponent;
 import com.jess.arms.utils.ArmsUtils;
-
-import com.argent.aiyunzan.MINE.di.component.DaggerMine_Menu3Component;
-import com.argent.aiyunzan.MINE.mvp.contract.Mine_Menu3Contract;
-import com.argent.aiyunzan.MINE.mvp.presenter.Mine_Menu3Presenter;
-
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -79,7 +75,7 @@ public class Mine_Menu3Activity extends BaseActivity<Mine_Menu3Presenter> implem
     RelativeLayout rl_3;
 
     private List<String> optionData = new ArrayList<>(Arrays.asList("中国银行", "交通银行",
-            "邮政银行", "农业银行", "建设银行", "平安银行", "工商银行", "招商银行"));
+            "邮政银行", "农业银行", "建设银行", "平安银行", "工商银行", "招商银行", "浦发银行"));
     private Dialog mWeiboDialog;
 
 
