@@ -223,8 +223,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:lineSpacingExtra="8dp"
-                    android:text="快捷支付
-支付宝安全支付"
+                    android:text="快捷支付 支付宝安全支付"
                     android:textColor="#ffffffff"
                     android:textSize="13sp" />
 

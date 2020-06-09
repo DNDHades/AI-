@@ -39,5 +39,7 @@ public interface SPConstants {
     String MONEY = "money";
     //pass
     String PASS = "pass";
+    //提现类型
+    String TYPE = "type";
 
 }

@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.argent.aiyunzan.R;
 import com.argent.aiyunzan.common.model.bean.response.MineMenu3HqxxRsp;
@@ -64,8 +65,6 @@ public class Mine_Menu3Activity extends BaseActivity<Mine_Menu3Presenter> implem
     EditText et_card_number;
     @BindView(R.id.et_mobile)
     EditText et_mobile;
-    @BindView(R.id.tv_code)
-    TextView tv_code;
     @BindView(R.id.et_verifi)
     EditText et_verifi;
     @BindView(R.id.et_pass)
@@ -84,15 +83,12 @@ public class Mine_Menu3Activity extends BaseActivity<Mine_Menu3Presenter> implem
     private Dialog mWeiboDialog;
 
 
-    @OnClick({R.id.rl_khhmc, R.id.tv_code, R.id.btn_login})
+    @OnClick({R.id.rl_khhmc, R.id.btn_login})
     void onClick(View view) {
         switch (view.getId()) {
             case R.id.rl_khhmc:
                 OptionsPickerView show = new OptionsPickerViewUtils(this).show(optionData, et_card_name);
                 show.setTitleText("选择银行名称");
-                break;
-            case R.id.tv_code:
-                loadGetCode(et_mobile);
                 break;
             case R.id.btn_login:
                 postData(et_username, et_card_name, et_card_number, et_mobile, et_verifi, et_pass);
@@ -105,22 +101,17 @@ public class Mine_Menu3Activity extends BaseActivity<Mine_Menu3Presenter> implem
                           EditText et_verifi, EditText et_pass) {
         if (!CheckBankCardUtils.checkBankCard(getText(et_card_number))) {
             ArmsUtils.makeText(this, "请输入正确的银行卡号");
+        } else if (et_mobile.length() != 18) {
+            ArmsUtils.makeText(this, "身份证长度不正确");
         } else {
-            mPresenter.loadPostData(getText(et_username), getText(et_card_name),
-                    getText(et_card_number),
-                    getText(et_mobile), getText(et_verifi), getText(et_pass));
+            {
+                mPresenter.loadPostData(getText(et_username), getText(et_card_name),
+                        getText(et_card_number),
+                        getText(et_mobile), getText(et_verifi), getText(et_pass));
+            }
         }
     }
 
-    private void loadGetCode(EditText et_mobile) {
-        if (!TextUtils.isEmpty(getText(et_mobile))) {
-            SmsTimeUtils.check(SmsTimeUtils.HUOQU, false);
-            SmsTimeUtils.startCountdown(tv_code);
-            mPresenter.loadGetCode(getText(et_mobile));
-        } else {
-            ArmsUtils.makeText(this, "手机号码不能为空");
-        }
-    }
 
     @Override
     protected void onResume() {
@@ -151,12 +142,15 @@ public class Mine_Menu3Activity extends BaseActivity<Mine_Menu3Presenter> implem
     }
 
     private void initView() {
-        if (SmsTimeUtils.check(SmsTimeUtils.HUOQU, true)) {
-            SmsTimeUtils.startCountdown(tv_code);
-        } else {
-            tv_code.setEnabled(true);
-        }
         btn_login.observerEnable(et_username, et_card_name, et_card_number, et_mobile, et_verifi, et_pass);
+        et_mobile.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus && et_mobile.length() != 18) {
+                    Toast.makeText(Mine_Menu3Activity.this, "身份证长度不正确", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 
     @Override
@@ -190,7 +184,7 @@ public class Mine_Menu3Activity extends BaseActivity<Mine_Menu3Presenter> implem
     public void loadHomeSuccess(MineMenu3HqxxRsp datas) {
         MineMenu3HqxxRsp.DataBean data = datas.getData();
         if (data != null) {
-            if(!TextUtils.isEmpty(data.getUsername())){
+            if (!TextUtils.isEmpty(data.getUsername())) {
                 et_username.setText(data.getUsername() + "");
                 et_card_name.setText(data.getCard_name() + "");
                 et_card_number.setText(data.getCard_number() + "");
@@ -203,7 +197,7 @@ public class Mine_Menu3Activity extends BaseActivity<Mine_Menu3Presenter> implem
                 rl_2.setVisibility(View.GONE);
                 rl_3.setVisibility(View.GONE);
                 btn_login.setVisibility(View.GONE);
-            }else{
+            } else {
                 rl_1.setVisibility(View.VISIBLE);
                 rl_2.setVisibility(View.VISIBLE);
                 rl_3.setVisibility(View.VISIBLE);

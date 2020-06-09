@@ -100,8 +100,8 @@ public interface MineService {
     Observable<MineMenu3BdyhkPostDataRsp> load_Bdyhktj(@Field("username") String et_username,
                                                        @Field("card_name") String et_card_name,
                                                        @Field("card_number") String et_card_number,
-                                                       @Field("mobile") String et_mobile,
-                                                       @Field("verifi") String et_verifi,
+                                                       @Field("user_info_id_no") String et_mobile,
+                                                       @Field("alipay_accunt") String et_verifi,
                                                        @Field("pass") String et_pass);
 
     //个人中心-修改提现密码
