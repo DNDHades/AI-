@@ -62,7 +62,8 @@ public class Mine_Menu2Model extends BaseModel implements Mine_Menu2Contract.Mod
         ModelInfo modelInfo = new ModelInfo();
         String money = modelInfo.getMoney();
         String pass = modelInfo.getPass();
+        String type = modelInfo.getType();
         return mRepositoryManager.obtainRetrofitService(MineService.class)
-                .load_WytxTj(money, pass);
+                .load_WytxTj(money, pass , type);
     }
 }

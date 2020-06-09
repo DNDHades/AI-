@@ -121,7 +121,8 @@ public interface MineService {
     @FormUrlEncoded
     @POST(Api.MINE_WYTXTJ)
     Observable<MineMenu2TjRsp> load_WytxTj(@Field("money") String money,
-                                           @Field("pass") String pass);
+                                           @Field("pass") String pass,
+                                           @Field("type") String type);
 
     //个人中心-版本更新-获取下载地址和版本号接口
     @FormUrlEncoded

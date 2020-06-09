@@ -6,35 +6,28 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.argent.aiyunzan.MAIN.mvp.ui.activity.LoginAuthCodeActivity;
-import com.argent.aiyunzan.MAIN.mvp.ui.activity.LoginForgetActivity;
-import com.argent.aiyunzan.MAIN.mvp.ui.activity.RegisterActivity;
+import com.argent.aiyunzan.MINE.di.component.DaggerMine_Menu2Component;
+import com.argent.aiyunzan.MINE.mvp.contract.Mine_Menu2Contract;
+import com.argent.aiyunzan.MINE.mvp.presenter.Mine_Menu2Presenter;
 import com.argent.aiyunzan.R;
 import com.argent.aiyunzan.common.model.bean.response.MineMenu2HqsjRsp;
 import com.argent.aiyunzan.common.model.bean.response.MineMenu2TjRsp;
-import com.argent.aiyunzan.common.model.constant.ModelInfo;
 import com.argent.aiyunzan.common.model.constant.SPConstants;
 import com.argent.aiyunzan.common.utils.EdittextDialogUtils;
 import com.argent.aiyunzan.common.utils.WeiboDialogUtils;
 import com.argent.aiyunzan.common.widget.Dialog.MessageDialog;
-import com.argent.aiyunzan.common.widget.ObserverButton;
 import com.blankj.utilcode.util.SPUtils;
 import com.jess.arms.base.BaseActivity;
 import com.jess.arms.di.component.AppComponent;
 import com.jess.arms.utils.ArmsUtils;
 
-import com.argent.aiyunzan.MINE.di.component.DaggerMine_Menu2Component;
-import com.argent.aiyunzan.MINE.mvp.contract.Mine_Menu2Contract;
-import com.argent.aiyunzan.MINE.mvp.presenter.Mine_Menu2Presenter;
-
-
 import butterknife.BindView;
+import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 import static com.jess.arms.utils.Preconditions.checkNotNull;
@@ -68,6 +61,8 @@ public class Mine_Menu2Activity extends BaseActivity<Mine_Menu2Presenter> implem
     TextView tv_change;
     @BindView(R.id.btn_confirm)
     Button btn_confirm;
+    @BindView(R.id.btn_confirm_zfb)
+    Button btnConfirmZfb;
 
     private EdittextDialogUtils edittextDialogUtils;
     private Dialog mWeiboDialog;
@@ -77,8 +72,10 @@ public class Mine_Menu2Activity extends BaseActivity<Mine_Menu2Presenter> implem
     void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_confirm:
-                loadPostData();
+                loadPostData(1);
                 break;
+            case R.id.btn_confirm_zfb:
+                loadPostData(2);
         }
     }
 
@@ -88,7 +85,7 @@ public class Mine_Menu2Activity extends BaseActivity<Mine_Menu2Presenter> implem
         toolbar_title.setText("立即提现");
     }
 
-    private void loadPostData() {
+    private void loadPostData(int type) {
         if (!TextUtils.isEmpty(getText(et_money))) {
             Integer integer = Integer.valueOf(getText(et_money));
             if (integer <= 0) {
@@ -104,6 +101,7 @@ public class Mine_Menu2Activity extends BaseActivity<Mine_Menu2Presenter> implem
                             String money = getText(et_money);
                             SPUtils.getInstance().put(SPConstants.MONEY, money);
                             SPUtils.getInstance().put(SPConstants.PASS, pass);
+                            SPUtils.getInstance().put(SPConstants.TYPE,type);
                             mPresenter.loadPostData();
                         } else {
                             ArmsUtils.makeText(Mine_Menu2Activity.this,

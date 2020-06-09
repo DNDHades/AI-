@@ -75,4 +75,9 @@ public class ModelInfo {
         return SPUtils.getInstance().getString(SPConstants.PASS);
     }
 
+    //pass
+    public String getType() {
+        return SPUtils.getInstance().getString(SPConstants.TYPE);
+    }
+
 }
