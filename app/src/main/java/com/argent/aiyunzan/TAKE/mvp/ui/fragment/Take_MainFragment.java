@@ -208,16 +208,16 @@ public class Take_MainFragment extends BaseFragment<Take_MainPresenter> implemen
             money = data.getData().getMoney();
             switch (money) {
                 case "888":
-                    lp_pan.setLuckNumber(0);
+                    lp_pan.setLuckNumber(8);
                     break;
                 case "988":
-                    lp_pan.setLuckNumber(1);
+                    lp_pan.setLuckNumber(0);
                     break;
                 case "8.8":
-                    lp_pan.setLuckNumber(2);
+                    lp_pan.setLuckNumber(1);
                     break;
                 case "28":
-                    lp_pan.setLuckNumber(3);
+                    lp_pan.setLuckNumber(2);
                     break;
                 case "68":
                     lp_pan.setLuckNumber(4);
