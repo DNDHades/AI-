@@ -62,28 +62,28 @@ public class MineSrmxRsp {
          * other : 0
          */
 
-        private int myprofit;
-        private int all_profit;
+        private String myprofit;
+        private String all_profit;
         private int werden;
         private int click;
         private int share;
         private int team;
-        private int luck;
+        private String luck;
         private int other;
 
-        public int getMyprofit() {
+        public String getMyprofit() {
             return myprofit;
         }
 
-        public void setMyprofit(int myprofit) {
+        public void setMyprofit(String myprofit) {
             this.myprofit = myprofit;
         }
 
-        public int getAll_profit() {
+        public String getAll_profit() {
             return all_profit;
         }
 
-        public void setAll_profit(int all_profit) {
+        public void setAll_profit(String all_profit) {
             this.all_profit = all_profit;
         }
 
@@ -119,11 +119,11 @@ public class MineSrmxRsp {
             this.team = team;
         }
 
-        public int getLuck() {
+        public String getLuck() {
             return luck;
         }
 
-        public void setLuck(int luck) {
+        public void setLuck(String luck) {
             this.luck = luck;
         }
 

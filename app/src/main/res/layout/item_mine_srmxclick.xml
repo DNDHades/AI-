@@ -21,7 +21,7 @@
                 android:id="@+id/tv_types"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="50dp"
+                android:layout_marginLeft="5dp"
                 android:text="已抽奖奖励金额"
                 android:textColor="@color/white"
                 android:textSize="12sp" />
@@ -30,7 +30,7 @@
                 android:id="@+id/tv_time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="50dp"
+                android:layout_marginLeft="5dp"
                 android:text="2020-03-26 15:14:26"
                 android:textColor="@color/white"
                 android:textSize="12sp" />
