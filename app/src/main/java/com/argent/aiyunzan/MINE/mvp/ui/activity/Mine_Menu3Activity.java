@@ -1,12 +1,14 @@
 package com.argent.aiyunzan.MINE.mvp.ui.activity;
 
 import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -83,6 +85,7 @@ public class Mine_Menu3Activity extends BaseActivity<Mine_Menu3Presenter> implem
     void onClick(View view) {
         switch (view.getId()) {
             case R.id.rl_khhmc:
+                hintKbTwo();
                 OptionsPickerView show = new OptionsPickerViewUtils(this).show(optionData, et_card_name);
                 show.setTitleText("选择银行名称");
                 break;
@@ -193,10 +196,19 @@ public class Mine_Menu3Activity extends BaseActivity<Mine_Menu3Presenter> implem
                 rl_1.setVisibility(View.GONE);
                 rl_3.setVisibility(View.GONE);
                 btn_login.setVisibility(View.GONE);
-            } else {
-                rl_1.setVisibility(View.VISIBLE);
-                rl_3.setVerticalGravity(View.VISIBLE);
-                btn_login.setVisibility(View.VISIBLE);
+            }
+        } else {
+            rl_1.setVisibility(View.VISIBLE);
+            rl_3.setVerticalGravity(View.VISIBLE);
+            btn_login.setVisibility(View.VISIBLE);
+        }
+    }
+
+    private void hintKbTwo() {
+        InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+        if(imm.isActive()&&getCurrentFocus()!=null){
+            if (getCurrentFocus().getWindowToken()!=null) {
+                imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
             }
         }
     }

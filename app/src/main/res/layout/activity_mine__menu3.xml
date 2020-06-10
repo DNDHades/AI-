@@ -117,6 +117,7 @@
                     android:background="@null"
                     android:ellipsize="start"
                     android:gravity="right"
+                    android:inputType="number"
                     android:hint="请输入16位或19位银行卡号"
                     android:textColor="@color/white"
                     android:textColorHint="#709ED7"
@@ -154,7 +155,9 @@
                     android:maxLength="18"
                     android:textColor="@color/white"
                     android:textColorHint="#709ED7"
-                    android:textSize="13sp" />
+                    android:textSize="13sp"
+                    android:inputType="number"
+                    android:digits="1234567890Xx"/>
 
             </RelativeLayout>
 
@@ -185,7 +188,7 @@
                     android:ellipsize="start"
                     android:gravity="right"
                     android:hint="请输入正确的个人提现支付宝账号"
-                    android:maxLength="8"
+                    android:digits="0123456789abcdefghigklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@."
                     android:text=""
                     android:textColor="@color/white"
                     android:textColorHint="#709ED7"
@@ -259,7 +262,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
+                android:layout_marginLeft="5dp"
                 android:layout_marginTop="12dp"
                 android:lineSpacingExtra="11dp"
                 android:text="1、再三检查所有信息正确之后再点确定绑定！"
@@ -269,7 +272,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
+                android:layout_marginLeft="5dp"
                 android:layout_marginTop="2dp"
                 android:lineSpacingExtra="11dp"
                 android:text="2、如填写资料错误！请及时在客服中心联系客服更正！"
@@ -310,10 +313,10 @@
                 android:paddingTop="9dp"
                 android:paddingRight="53dp"
                 android:paddingBottom="9dp"
-                android:text="绑定银行卡"
+                android:text="确定绑定"
                 android:textColor="@color/white"
                 android:textSize="11sp"
-                android:visibility="gone" />
+                android:visibility="visible" />
 
         </LinearLayout>
     </ScrollView>
