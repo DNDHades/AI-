@@ -61,8 +61,8 @@ public class MineSyRsp {
         private String avatar;
         private String change;
         private int level;
-        private int all_shou;
-        private int day_shou;
+        private String all_shou;
+        private String day_shou;
         private int werden;
 
         public String getNickname() {
@@ -121,19 +121,19 @@ public class MineSyRsp {
             this.level = level;
         }
 
-        public int getAll_shou() {
+        public String getAll_shou() {
             return all_shou;
         }
 
-        public void setAll_shou(int all_shou) {
+        public void setAll_shou(String all_shou) {
             this.all_shou = all_shou;
         }
 
-        public int getDay_shou() {
+        public String getDay_shou() {
             return day_shou;
         }
 
-        public void setDay_shou(int day_shou) {
+        public void setDay_shou(String day_shou) {
             this.day_shou = day_shou;
         }
 

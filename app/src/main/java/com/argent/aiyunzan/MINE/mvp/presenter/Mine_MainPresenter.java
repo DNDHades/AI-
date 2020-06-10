@@ -1,6 +1,7 @@
 package com.argent.aiyunzan.MINE.mvp.presenter;
 
 import android.app.Application;
+import android.util.Log;
 
 import com.argent.aiyunzan.common.model.api.Api;
 import com.argent.aiyunzan.common.model.bean.response.CenterHqsjRsp;
@@ -20,6 +21,10 @@ import javax.inject.Inject;
 
 import com.argent.aiyunzan.MINE.mvp.contract.Mine_MainContract;
 import com.jess.arms.utils.RxLifecycleUtils;
+
+import java.io.PrintWriter;
+import java.io.StringWriter;
+import java.io.Writer;
 
 
 /**
