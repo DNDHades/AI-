@@ -11,8 +11,10 @@ import android.support.v7.widget.RecyclerView;
 import android.widget.TextView;
 
 import com.argent.aiyunzan.R;
+import com.argent.aiyunzan.common.model.bean.info.EmptyInfo;
 import com.argent.aiyunzan.common.model.bean.response.MineTdxqRsp;
 import com.argent.aiyunzan.common.model.bean.response.MineTxjlRsp;
+import com.argent.aiyunzan.common.model.constant.EventBusTags;
 import com.argent.aiyunzan.common.utils.WeiboDialogUtils;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
@@ -27,6 +29,8 @@ import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnLoadMoreListener;
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 
+
+import org.simple.eventbus.EventBus;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -176,5 +180,7 @@ public class Mine_TxjlActivity extends BaseActivity<Mine_TxjlPresenter> implemen
         adapter.notifyDataSetChanged();
         mRefreshLayout.finishRefresh();
         mRefreshLayout.finishLoadMore();
+        EventBus.getDefault().post(new EmptyInfo(), EventBusTags.ISGHXX);
+
     }
 }

@@ -185,6 +185,7 @@ public class Mine_Menu2Activity extends BaseActivity<Mine_Menu2Presenter> implem
     public void loadPostDataComplete(MineMenu2TjRsp data) {
         ArmsUtils.makeText(this, data.getMsg() + "");
         edittextDialogUtils.cancel();
+        et_money.setText("");
         mPresenter.loadData();
         EventBus.getDefault().post(new EmptyInfo(), EventBusTags.ISGHXX);
     }
