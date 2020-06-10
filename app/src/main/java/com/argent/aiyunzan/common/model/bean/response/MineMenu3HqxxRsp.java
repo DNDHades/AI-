@@ -53,6 +53,16 @@ public class MineMenu3HqxxRsp {
         private String username;
         private String alipay_accunt;
 
+        public String getUser_info_id_no() {
+            return user_info_id_no;
+        }
+
+        public void setUser_info_id_no(String user_info_id_no) {
+            this.user_info_id_no = user_info_id_no;
+        }
+
+        private String user_info_id_no;
+
         public String getCard_name() {
             return card_name;
         }

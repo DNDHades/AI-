@@ -121,16 +121,16 @@ public class Mine_TxjlActivity extends BaseActivity<Mine_TxjlPresenter> implemen
             @Override
             protected void convert(@NonNull BaseViewHolder helper, MineTxjlRsp.DataBean.Datas item) {
                 helper.setText(R.id.tv_money, item.getMoney() + "元");
-                helper.setText(R.id.tv_create_time, item.getCreate_time() + "");
+                helper.setText(R.id.tv_create_time, item.getBtn_time() + "");
                 if (item.getStatus().equals("0")) {
                     helper.setText(R.id.tv_status, "审核中");
                     helper.setTextColor(R.id.tv_status, Color.parseColor("#96E9FF"));
                 } else if (item.getStatus().equals("1")) {
-                    helper.setText(R.id.tv_level, "提现成功");
-                    helper.setTextColor(R.id.tv_level, Color.parseColor("#FF0000"));
+                    helper.setText(R.id.tv_status, "提现成功");
+                    helper.setTextColor(R.id.tv_status, Color.parseColor("#FF0000"));
                 } else if (item.getStatus().equals("2")) {
-                    helper.setText(R.id.tv_level, "提现失败");
-                    helper.setTextColor(R.id.tv_level, Color.parseColor("#FFFFFF"));
+                    helper.setText(R.id.tv_status, "提现失败");
+                    helper.setTextColor(R.id.tv_status, Color.parseColor("#FFFFFF"));
                 }
             }
         };

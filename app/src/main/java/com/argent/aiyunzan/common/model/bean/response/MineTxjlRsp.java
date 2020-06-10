@@ -73,6 +73,16 @@ public class MineTxjlRsp {
             private String money;
             private String status;
 
+            public String getBtn_time() {
+                return btn_time;
+            }
+
+            public void setBtn_time(String btn_time) {
+                this.btn_time = btn_time;
+            }
+
+            private String btn_time;
+
             public String getCreate_time() {
                 return create_time;
             }

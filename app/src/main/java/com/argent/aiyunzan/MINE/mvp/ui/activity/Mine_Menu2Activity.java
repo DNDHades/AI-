@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,8 +16,10 @@ import com.argent.aiyunzan.MINE.di.component.DaggerMine_Menu2Component;
 import com.argent.aiyunzan.MINE.mvp.contract.Mine_Menu2Contract;
 import com.argent.aiyunzan.MINE.mvp.presenter.Mine_Menu2Presenter;
 import com.argent.aiyunzan.R;
+import com.argent.aiyunzan.common.model.bean.info.EmptyInfo;
 import com.argent.aiyunzan.common.model.bean.response.MineMenu2HqsjRsp;
 import com.argent.aiyunzan.common.model.bean.response.MineMenu2TjRsp;
+import com.argent.aiyunzan.common.model.constant.EventBusTags;
 import com.argent.aiyunzan.common.model.constant.SPConstants;
 import com.argent.aiyunzan.common.utils.EdittextDialogUtils;
 import com.argent.aiyunzan.common.utils.WeiboDialogUtils;
@@ -25,6 +28,8 @@ import com.blankj.utilcode.util.SPUtils;
 import com.jess.arms.base.BaseActivity;
 import com.jess.arms.di.component.AppComponent;
 import com.jess.arms.utils.ArmsUtils;
+
+import org.simple.eventbus.EventBus;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -68,14 +73,14 @@ public class Mine_Menu2Activity extends BaseActivity<Mine_Menu2Presenter> implem
     private Dialog mWeiboDialog;
     private String bankcard = "0";//用户是否已绑定银行卡,1已绑定,0未绑定
 
-    @OnClick({R.id.btn_confirm})
+    @OnClick({R.id.btn_confirm,R.id.btn_confirm_zfb})
     void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_confirm:
-                loadPostData(1);
+                loadPostData("1");
                 break;
             case R.id.btn_confirm_zfb:
-                loadPostData(2);
+                loadPostData("2");
         }
     }
 
@@ -85,7 +90,7 @@ public class Mine_Menu2Activity extends BaseActivity<Mine_Menu2Presenter> implem
         toolbar_title.setText("立即提现");
     }
 
-    private void loadPostData(int type) {
+    private void loadPostData(String type) {
         if (!TextUtils.isEmpty(getText(et_money))) {
             Integer integer = Integer.valueOf(getText(et_money));
             if (integer <= 0) {
@@ -180,5 +185,7 @@ public class Mine_Menu2Activity extends BaseActivity<Mine_Menu2Presenter> implem
     public void loadPostDataComplete(MineMenu2TjRsp data) {
         ArmsUtils.makeText(this, data.getMsg() + "");
         edittextDialogUtils.cancel();
+        mPresenter.loadData();
+        EventBus.getDefault().post(new EmptyInfo(), EventBusTags.ISGHXX);
     }
 }

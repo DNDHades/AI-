@@ -188,17 +188,15 @@ public class Mine_Menu3Activity extends BaseActivity<Mine_Menu3Presenter> implem
                 et_card_name.setText(data.getCard_name() + "");
                 et_card_number.setText(data.getCard_number() + "");
                 et_verifi.setText(data.getAlipay_accunt() + "");
+                et_mobile.setText(data.getUser_info_id_no() + "");
                 et_username.setEnabled(false);
                 et_card_name.setEnabled(false);
                 et_card_number.setEnabled(false);
                 et_verifi.setEnabled(false);
-
-                rl_1.setVisibility(View.GONE);
                 rl_3.setVisibility(View.GONE);
                 btn_login.setVisibility(View.GONE);
             }
         } else {
-            rl_1.setVisibility(View.VISIBLE);
             rl_3.setVerticalGravity(View.VISIBLE);
             btn_login.setVisibility(View.VISIBLE);
         }

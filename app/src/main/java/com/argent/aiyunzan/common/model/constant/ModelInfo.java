@@ -75,7 +75,7 @@ public class ModelInfo {
         return SPUtils.getInstance().getString(SPConstants.PASS);
     }
 
-    //pass
+    //提现类型
     public String getType() {
         return SPUtils.getInstance().getString(SPConstants.TYPE);
     }

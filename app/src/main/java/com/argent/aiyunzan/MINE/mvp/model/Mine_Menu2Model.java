@@ -2,20 +2,17 @@ package com.argent.aiyunzan.MINE.mvp.model;
 
 import android.app.Application;
 
-import com.argent.aiyunzan.common.model.api.service.MainService;
+import com.argent.aiyunzan.MINE.mvp.contract.Mine_Menu2Contract;
 import com.argent.aiyunzan.common.model.api.service.MineService;
 import com.argent.aiyunzan.common.model.bean.response.MineMenu2HqsjRsp;
 import com.argent.aiyunzan.common.model.bean.response.MineMenu2TjRsp;
 import com.argent.aiyunzan.common.model.constant.ModelInfo;
 import com.google.gson.Gson;
+import com.jess.arms.di.scope.ActivityScope;
 import com.jess.arms.integration.IRepositoryManager;
 import com.jess.arms.mvp.BaseModel;
 
-import com.jess.arms.di.scope.ActivityScope;
-
 import javax.inject.Inject;
-
-import com.argent.aiyunzan.MINE.mvp.contract.Mine_Menu2Contract;
 
 import io.reactivex.Observable;
 
@@ -64,6 +61,6 @@ public class Mine_Menu2Model extends BaseModel implements Mine_Menu2Contract.Mod
         String pass = modelInfo.getPass();
         String type = modelInfo.getType();
         return mRepositoryManager.obtainRetrofitService(MineService.class)
-                .load_WytxTj(money, pass , type);
+                .load_WytxTj(money, pass, type);
     }
 }

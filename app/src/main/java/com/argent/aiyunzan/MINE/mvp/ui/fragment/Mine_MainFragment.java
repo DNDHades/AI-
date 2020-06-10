@@ -10,16 +10,13 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.argent.aiyunzan.HOME.mvp.ui.activity.Home_Menu1Activity;
-import com.argent.aiyunzan.HOME.mvp.ui.activity.Home_Menu2Activity;
 import com.argent.aiyunzan.HOME.mvp.ui.activity.Home_Menu3Activity;
-import com.argent.aiyunzan.HOME.mvp.ui.activity.Home_Menu4Activity;
-import com.argent.aiyunzan.HOME.mvp.ui.activity.Home_Menu5Activity;
-import com.argent.aiyunzan.HOME.mvp.ui.activity.Home_Menu6Activity;
 import com.argent.aiyunzan.MAIN.mvp.ui.activity.LoginActivity;
+import com.argent.aiyunzan.MINE.di.component.DaggerMine_MainComponent;
+import com.argent.aiyunzan.MINE.mvp.contract.Mine_MainContract;
+import com.argent.aiyunzan.MINE.mvp.presenter.Mine_MainPresenter;
 import com.argent.aiyunzan.MINE.mvp.ui.activity.Mine_Menu1Activity;
 import com.argent.aiyunzan.MINE.mvp.ui.activity.Mine_Menu2Activity;
 import com.argent.aiyunzan.MINE.mvp.ui.activity.Mine_Menu3Activity;
@@ -32,19 +29,11 @@ import com.argent.aiyunzan.R;
 import com.argent.aiyunzan.common.model.bean.info.EmptyInfo;
 import com.argent.aiyunzan.common.model.bean.response.MineSyRsp;
 import com.argent.aiyunzan.common.model.constant.EventBusTags;
-import com.argent.aiyunzan.common.model.constant.SPConstants;
 import com.argent.aiyunzan.common.utils.WeiboDialogUtils;
-import com.blankj.utilcode.util.SPUtils;
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.jess.arms.base.BaseFragment;
 import com.jess.arms.di.component.AppComponent;
 import com.jess.arms.utils.ArmsUtils;
-
-import com.argent.aiyunzan.MINE.di.component.DaggerMine_MainComponent;
-import com.argent.aiyunzan.MINE.mvp.contract.Mine_MainContract;
-import com.argent.aiyunzan.MINE.mvp.presenter.Mine_MainPresenter;
-
 
 import org.simple.eventbus.Subscriber;
 
