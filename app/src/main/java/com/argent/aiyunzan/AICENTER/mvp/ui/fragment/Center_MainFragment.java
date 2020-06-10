@@ -225,8 +225,9 @@ public class Center_MainFragment extends BaseFragment<Center_MainPresenter> impl
         tv_money.setText(data.getMoney() + "元");
         if (data.getStatus() == 0) {
             iv_click.setVisibility(View.VISIBLE);
-            iv_runbottom.setVisibility(View.GONE);
+            iv_runbottom.setVisibility(View.VISIBLE);
             iv_runtop.setVisibility(View.GONE);
+            Glide.with(getContext()).load(R.drawable.center_main_no_14).into(iv_runbottom);
         } else {
             iv_click.setVisibility(View.GONE);
             iv_runbottom.setVisibility(View.VISIBLE);

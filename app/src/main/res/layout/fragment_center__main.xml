@@ -281,8 +281,7 @@
                 android:layout_height="20dp"
                 android:layout_marginLeft="2dp"
                 android:layout_marginTop="540dp"
-                android:layout_toRightOf="@id/tv_gzz"
-                android:background="@drawable/center_main_no_14"/>
+                android:layout_toRightOf="@id/tv_gzz" />
 
         </RelativeLayout>
     </ScrollView>
