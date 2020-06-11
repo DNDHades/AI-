@@ -117,7 +117,7 @@ public class Take_MainFragment extends BaseFragment<Take_MainPresenter> implemen
         lp_pan.setLuckPanAnimEndCallBack(new LuckPanAnimEndCallBack() {
             @Override
             public void onAnimEnd(String str) {//转完以后
-                Toast.makeText(getContext(), str, Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), str, Toast.LENGTH_LONG).show();
             }
         });
     }

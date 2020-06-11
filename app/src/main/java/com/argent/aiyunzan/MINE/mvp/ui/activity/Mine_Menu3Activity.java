@@ -146,7 +146,7 @@ public class Mine_Menu3Activity extends BaseActivity<Mine_Menu3Presenter> implem
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
                 if (!hasFocus && et_mobile.length() != 18) {
-                    Toast.makeText(Mine_Menu3Activity.this, "身份证长度不正确", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Mine_Menu3Activity.this, "身份证长度不正确", Toast.LENGTH_LONG).show();
                 }
             }
         });

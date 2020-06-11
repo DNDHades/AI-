@@ -235,7 +235,7 @@ public class ArmsUtils {
      */
     public static void makeText(Context context, String string) {
         if (mToast == null) {
-            mToast = Toast.makeText(context, string, Toast.LENGTH_SHORT);
+            mToast = Toast.makeText(context, string, Toast.LENGTH_LONG);
         }
         mToast.setText(string);
         mToast.show();
