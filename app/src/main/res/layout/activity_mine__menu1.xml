@@ -26,13 +26,13 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="17dp"
+                android:layout_marginLeft="5dp"
                 android:src="@drawable/mine1_td" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="46dp"
+                android:layout_marginLeft="34dp"
                 android:text="一级会员"
                 android:textColor="#ffffffff"
                 android:textSize="11sp" />
@@ -41,7 +41,8 @@
                 android:id="@+id/tv_1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="318dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="30dp"
                 android:textColor="#ffffffff"
                 android:textSize="11sp"
                 tools:text="2人" />
@@ -51,7 +52,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
-                android:layout_marginRight="20dp"
+                android:layout_marginRight="10dp"
                 android:src="@drawable/right" />
 
         </RelativeLayout>
@@ -72,13 +73,13 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="17dp"
+                android:layout_marginLeft="5dp"
                 android:src="@drawable/mine1_td" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="46dp"
+                android:layout_marginLeft="32dp"
                 android:text="二级会员"
                 android:textColor="#ffffffff"
                 android:textSize="11sp" />
@@ -87,7 +88,8 @@
                 android:id="@+id/tv_2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="318dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="30dp"
                 android:textColor="#ffffffff"
                 android:textSize="11sp"
                 tools:text="2人" />
@@ -97,7 +99,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
-                android:layout_marginRight="20dp"
+                android:layout_marginRight="10dp"
                 android:src="@drawable/right" />
 
         </RelativeLayout>

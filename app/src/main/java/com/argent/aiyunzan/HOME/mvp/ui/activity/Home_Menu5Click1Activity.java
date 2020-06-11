@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -52,7 +53,7 @@ public class Home_Menu5Click1Activity extends BaseActivity<Home_Menu5Click1Prese
     @BindView(R.id.iv_wxcode)
     ImageView iv_wxcode;
     @BindView(R.id.tv_wxnumber)
-    TextView tv_wxnumber;
+    EditText tv_wxnumber;
 
     private Bitmap mBitmap = null;
     private Dialog mWeiboDialog;
@@ -129,7 +130,7 @@ public class Home_Menu5Click1Activity extends BaseActivity<Home_Menu5Click1Prese
     public void loadHomeSuccess(HomeMenu5Kfzx2Rsp datas) {
         HomeMenu5Kfzx2Rsp.DataBean data = datas.getData();
         Glide.with(this).load(data.getWxewm()).into(iv_wxcode);
-        tv_wxnumber.setText("微信客服："+data.getWxnumber() + "");
+        tv_wxnumber.setText(data.getWxnumber() + "");
 
         Glide.with(this)
                 .asBitmap()
