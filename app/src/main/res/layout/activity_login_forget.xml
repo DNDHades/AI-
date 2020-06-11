@@ -59,7 +59,7 @@
                     android:drawablePadding="10.5dp"
                     android:hint="请设置至少8位字母加数字密码"
                     android:inputType="textPassword"
-                    android:maxLength="16"
+                    android:maxLength="20"
                     android:textColor="@color/black"
                     android:textColorHint="#709ED7"
                     android:textSize="15dp" />
@@ -74,7 +74,7 @@
                     android:drawablePadding="10.5dp"
                     android:hint="请再次输入字母加数字密码"
                     android:inputType="textPassword"
-                    android:maxLength="16"
+                    android:maxLength="20"
                     android:textColor="@color/black"
                     android:textColorHint="#709ED7"
                     android:textSize="15dp" />
