@@ -31,8 +31,11 @@ public class AutoPollAdapter extends RecyclerView.Adapter<AutoPollAdapter.BaseVi
 
     @Override
     public void onBindViewHolder(BaseViewHolder holder, int position) {
-        String data = mData.get(position % mData.size());
-        holder.text.setText(data);
+        if (mData.size() != 0){
+            String data = mData.get(position % mData.size());
+            holder.text.setText(data);
+        }
+
     }
 
     @Override

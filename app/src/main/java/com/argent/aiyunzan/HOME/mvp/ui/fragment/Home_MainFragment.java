@@ -155,11 +155,10 @@ public class Home_MainFragment extends BaseFragment<Home_MainPresenter> implemen
     private void initView() {
         tv_note.setSelected(true);
         initBanner();
-        initRecyclerView(titles);
     }
 
     private void initRecyclerView(List<String> titles) {
-        titles.add("");
+        rv_content.setHasFixedSize(true);
         rv_content.setLayoutManager(new LinearLayoutManager(getContext()));
         rv_content.setAdapter(new AutoPollAdapter(titles));
         rv_content.start();
@@ -270,6 +269,8 @@ public class Home_MainFragment extends BaseFragment<Home_MainPresenter> implemen
                     aArrayBean.getNum() + "台分布式工作中......";
             titles.add(str);
         }
+
+        initRecyclerView(titles);
 
     }
 
