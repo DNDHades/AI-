@@ -88,7 +88,10 @@ public class Center_MainFragment extends BaseFragment<Center_MainPresenter> impl
                 break;
             case R.id.tv_czsm:
                 new MessageDialog(getContext(), "操作说明",
-                        "购买AI自动点赞系统后只需点击开始按钮就自动开始点赞赚钱").show();
+                        "1、点击最下方红色立即购买完成支付动作!\n" +
+                                "2、返回点赞中心点击红色开始按钮系统开始自动工作!\n" +
+                                "3、一天只需要点击一次开始按钮无需其他操作!\n" +
+                                "4、购买系统台数越多，赚佣也越多，限购10台!").show();
                 break;
             case R.id.iv_ljgm:
                 launchActivity(new Intent(getContext(), Home_Menu4Activity.class));
