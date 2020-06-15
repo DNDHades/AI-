@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.argent.aiyunzan.MAIN.mvp.ui.activity.Main_Activity;
 import com.argent.aiyunzan.MINE.di.component.DaggerMine_Menu2Component;
 import com.argent.aiyunzan.MINE.mvp.contract.Mine_Menu2Contract;
 import com.argent.aiyunzan.MINE.mvp.presenter.Mine_Menu2Presenter;
@@ -35,6 +36,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
+import static com.argent.aiyunzan.MyApplication.getContext;
 import static com.jess.arms.utils.Preconditions.checkNotNull;
 
 
@@ -185,8 +187,18 @@ public class Mine_Menu2Activity extends BaseActivity<Mine_Menu2Presenter> implem
     public void loadPostDataComplete(MineMenu2TjRsp data) {
         ArmsUtils.makeText(this, data.getMsg() + "");
         edittextDialogUtils.cancel();
-        et_money.setText("");
-        mPresenter.loadData();
-        EventBus.getDefault().post(new EmptyInfo(), EventBusTags.ISGHXX);
+        new Thread(new Runnable() {
+            public void run() {
+                //sleep设置的是时长
+                try {
+                    Thread.sleep(1000);
+                    finish();
+                    launchActivity(new Intent(getContext(), Main_Activity.class));
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
+
     }
 }
