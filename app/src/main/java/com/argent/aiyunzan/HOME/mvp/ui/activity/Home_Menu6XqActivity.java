@@ -7,12 +7,13 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.webkit.WebChromeClient;
-import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.widget.FrameLayout;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.argent.aiyunzan.HOME.di.component.DaggerHome_Menu6XqComponent;
+import com.argent.aiyunzan.HOME.mvp.contract.Home_Menu6XqContract;
+import com.argent.aiyunzan.HOME.mvp.presenter.Home_Menu6XqPresenter;
 import com.argent.aiyunzan.R;
 import com.argent.aiyunzan.common.model.bean.response.HomeMenu6XszyXqRsp;
 import com.argent.aiyunzan.common.utils.WeiboDialogUtils;
@@ -20,12 +21,8 @@ import com.jess.arms.base.BaseActivity;
 import com.jess.arms.di.component.AppComponent;
 import com.jess.arms.utils.ArmsUtils;
 
-import com.argent.aiyunzan.HOME.di.component.DaggerHome_Menu6XqComponent;
-import com.argent.aiyunzan.HOME.mvp.contract.Home_Menu6XqContract;
-import com.argent.aiyunzan.HOME.mvp.presenter.Home_Menu6XqPresenter;
-
-
 import butterknife.BindView;
+import butterknife.ButterKnife;
 
 import static com.jess.arms.utils.Preconditions.checkNotNull;
 
@@ -48,6 +45,8 @@ public class Home_Menu6XqActivity extends BaseActivity<Home_Menu6XqPresenter> im
     TextView toolbar_title;
     @BindView(R.id.fl_container)
     FrameLayout fl_container;
+    @BindView(R.id.tv_title)
+    TextView tvTitle;
 
     private WebView mWebView;
     private final static String CSS_STYLE = "<style>* {font-size:16px;line-height:20px;}p {color:#FFFFFF;}</style>";
@@ -92,7 +91,7 @@ public class Home_Menu6XqActivity extends BaseActivity<Home_Menu6XqPresenter> im
     }
 
     private void initListener() {
-        mWebView.setWebChromeClient(new WebChromeClient(){
+        mWebView.setWebChromeClient(new WebChromeClient() {
             public void onProgressChanged(WebView view, int progress) {
                 if (progress == 100) {
                     //加载完成
@@ -131,6 +130,7 @@ public class Home_Menu6XqActivity extends BaseActivity<Home_Menu6XqPresenter> im
 
     @Override
     public void loadHomeSuccess(HomeMenu6XszyXqRsp.DataBean data) {
+        tvTitle.setText(data.getTitle());
         mWebView.loadDataWithBaseURL(null, CSS_STYLE + data.getText(), "text/html", "utf-8", null);
         showLoading();
     }
@@ -147,5 +147,12 @@ public class Home_Menu6XqActivity extends BaseActivity<Home_Menu6XqPresenter> im
             mWebView = null; // Note that mWebView.destroy() and mWebView = null do the exact same thing
         }
 
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        // TODO: add setContentView(...) invocation
+        ButterKnife.bind(this);
     }
 }

@@ -9,7 +9,6 @@ import android.os.Message;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,27 +16,21 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.argent.aiyunzan.MAIN.mvp.ui.activity.Main_Activity;
 import com.argent.aiyunzan.MINE.mvp.ui.activity.Mine_Menu1Activity;
 import com.argent.aiyunzan.MyApplication;
 import com.argent.aiyunzan.R;
+import com.argent.aiyunzan.TAKE.di.component.DaggerTake_MainComponent;
+import com.argent.aiyunzan.TAKE.mvp.contract.Take_MainContract;
+import com.argent.aiyunzan.TAKE.mvp.presenter.Take_MainPresenter;
 import com.argent.aiyunzan.common.model.api.Api;
 import com.argent.aiyunzan.common.model.bean.response.TakeHqCjgzDataRsp;
 import com.argent.aiyunzan.common.model.bean.response.TakeStartRsp;
 import com.argent.aiyunzan.common.utils.WeiboDialogUtils;
-import com.argent.aiyunzan.common.widget.PieView;
 import com.argent.aiyunzan.common.widget.luckpan.LuckPan;
 import com.argent.aiyunzan.common.widget.luckpan.LuckPanAnimEndCallBack;
 import com.jess.arms.base.BaseFragment;
 import com.jess.arms.di.component.AppComponent;
 import com.jess.arms.utils.ArmsUtils;
-
-import com.argent.aiyunzan.TAKE.di.component.DaggerTake_MainComponent;
-import com.argent.aiyunzan.TAKE.mvp.contract.Take_MainContract;
-import com.argent.aiyunzan.TAKE.mvp.presenter.Take_MainPresenter;
-
-
-import java.util.Random;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -117,7 +110,8 @@ public class Take_MainFragment extends BaseFragment<Take_MainPresenter> implemen
         lp_pan.setLuckPanAnimEndCallBack(new LuckPanAnimEndCallBack() {
             @Override
             public void onAnimEnd(String str) {//转完以后
-                Toast.makeText(getContext(), str, Toast.LENGTH_LONG).show();
+                Toast.makeText(mContext, "恭喜你，获得" + str + "元现金！", Toast.LENGTH_LONG).show();
+//                Toast.makeText(getContext(), "恭喜你，获得" + str + "元现金！", Toast.LENGTH_LONG).show();
             }
         });
     }
@@ -198,7 +192,7 @@ public class Take_MainFragment extends BaseFragment<Take_MainPresenter> implemen
 
     @Override
     public void loadStartSuccess(TakeStartRsp data) {
-        ArmsUtils.makeText(MyApplication.getContext(), data.getMsg());
+//        ArmsUtils.makeText(MyApplication.getContext(), data.getMsg());
         if (data.getCode() == Api.SUCCESS) {
             if (data.getData() == null) {
                 return;
