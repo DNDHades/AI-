@@ -137,7 +137,7 @@ public class SplashActivity extends BaseActivity<SplashPresenter> implements Spl
                 isJump();
                 break;
             case -1://更新版本
-                jcgxDialog = new JcgxDialog(this);
+                jcgxDialog = new JcgxDialog(android_number);
                 jcgxDialog.showCustomizeDialog(this, new JcgxDialog.Listener() {
                     @Override
                     public void onClick() {

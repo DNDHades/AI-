@@ -2,20 +2,21 @@ package com.argent.aiyunzan.common.utils;
 
 import android.app.Dialog;
 import android.content.Context;
-import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.argent.aiyunzan.R;
 
-public class JcgxDialog extends Dialog{
+public class JcgxDialog {
 
     private Dialog mDialog;
     private View mView;
+    private String number;
 
-    public JcgxDialog(@NonNull Context context) {
-        super(context);
+    public JcgxDialog(String number) {
+        this.number = number;
     }
 
     public Dialog showCustomizeDialog(Context mContext, Listener listener) {
@@ -29,6 +30,8 @@ public class JcgxDialog extends Dialog{
         mView = LayoutInflater.from(mContext)
                 .inflate(R.layout.jcgx_dialog, null);
         Button btn_confirm = mView.findViewById(R.id.btn_confirm);
+        TextView textView = mView.findViewById(R.id.tv_bbh);
+        textView.setText("有新的版本" + "(" + number + ")");
         btn_confirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
