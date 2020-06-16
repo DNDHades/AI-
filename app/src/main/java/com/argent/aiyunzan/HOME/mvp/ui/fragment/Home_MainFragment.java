@@ -1,11 +1,9 @@
 package com.argent.aiyunzan.HOME.mvp.ui.fragment;
 
 import android.app.Activity;
-import android.app.Application;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.Message;
 import android.support.annotation.NonNull;
@@ -18,7 +16,11 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.argent.aiyunzan.HOME.di.component.DaggerHome_MainComponent;
+import com.argent.aiyunzan.HOME.mvp.contract.Home_MainContract;
+import com.argent.aiyunzan.HOME.mvp.presenter.Home_MainPresenter;
 import com.argent.aiyunzan.HOME.mvp.ui.activity.Home_Menu1Activity;
 import com.argent.aiyunzan.HOME.mvp.ui.activity.Home_Menu2Activity;
 import com.argent.aiyunzan.HOME.mvp.ui.activity.Home_Menu3Activity;
@@ -29,25 +31,19 @@ import com.argent.aiyunzan.MAIN.mvp.ui.activity.LoginActivity;
 import com.argent.aiyunzan.MyApplication;
 import com.argent.aiyunzan.R;
 import com.argent.aiyunzan.common.model.bean.response.HomeRsp;
-import com.argent.aiyunzan.common.model.constant.EventBusTags;
+import com.argent.aiyunzan.common.model.constant.SPConstants;
 import com.argent.aiyunzan.common.utils.WeiboDialogUtils;
 import com.argent.aiyunzan.common.widget.AutoPollRecyclerView.AutoPollAdapter;
 import com.argent.aiyunzan.common.widget.AutoPollRecyclerView.AutoPollRecyclerView;
 import com.argent.aiyunzan.common.widget.Dialog.MessageDialog;
+import com.blankj.utilcode.util.SPUtils;
 import com.bumptech.glide.Glide;
 import com.jess.arms.base.BaseFragment;
 import com.jess.arms.di.component.AppComponent;
 import com.jess.arms.utils.ArmsUtils;
-
-import com.argent.aiyunzan.HOME.di.component.DaggerHome_MainComponent;
-import com.argent.aiyunzan.HOME.mvp.contract.Home_MainContract;
-import com.argent.aiyunzan.HOME.mvp.presenter.Home_MainPresenter;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
 import com.youth.banner.loader.ImageLoaderInterface;
-
-
-import org.simple.eventbus.EventBus;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -84,6 +80,7 @@ public class Home_MainFragment extends BaseFragment<Home_MainPresenter> implemen
     private List<String> imageUrls = new ArrayList<>();
     private List<String> titles = new ArrayList<>();
     private Dialog mWeiboDialog;
+    private String level;
 
     @OnClick({R.id.ll_menu1, R.id.ll_menu2, R.id.ll_menu3, R.id.ll_menu4, R.id.ll_menu5, R.id.ll_menu6,
             R.id.tv_note})
@@ -96,7 +93,12 @@ public class Home_MainFragment extends BaseFragment<Home_MainPresenter> implemen
                 launchActivity(new Intent(getContext(), Home_Menu2Activity.class));
                 break;
             case R.id.ll_menu3:
-                launchActivity(new Intent(getContext(), Home_Menu3Activity.class));
+                if (level.equals("0")) {
+                    Toast.makeText(mContext, "您还没有开通AI系统哦!", Toast.LENGTH_SHORT).show();
+                } else {
+                    launchActivity(new Intent(getContext(), Home_Menu3Activity.class));
+                }
+
                 break;
             case R.id.ll_menu4:
                 launchActivity(new Intent(getContext(), Home_Menu4Activity.class));
@@ -261,7 +263,8 @@ public class Home_MainFragment extends BaseFragment<Home_MainPresenter> implemen
         List<String> picarr = data.getData().getPicarr();
         banner.update(picarr);
         tv_note.setText(data.getData().getNote() + "");
-
+        SPUtils.getInstance().put(SPConstants.LEVEL, data.getData().getLevel() + "");
+        level = data.getData().getLevel() + "";
         //下面轮播
         List<HomeRsp.DataBean.ArrayBean> array = data.getData().getArray();
         for (HomeRsp.DataBean.ArrayBean aArrayBean : array) {

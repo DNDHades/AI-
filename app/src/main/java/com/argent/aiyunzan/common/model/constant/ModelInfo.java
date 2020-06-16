@@ -80,4 +80,9 @@ public class ModelInfo {
         return SPUtils.getInstance().getString(SPConstants.TYPE);
     }
 
+    //提现类型
+    public String getLevel() {
+        return SPUtils.getInstance().getString(SPConstants.LEVEL);
+    }
+
 }

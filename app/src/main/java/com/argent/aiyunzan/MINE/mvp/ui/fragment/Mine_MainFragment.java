@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.argent.aiyunzan.HOME.mvp.ui.activity.Home_Menu3Activity;
 import com.argent.aiyunzan.MAIN.mvp.ui.activity.LoginActivity;
@@ -29,6 +30,7 @@ import com.argent.aiyunzan.R;
 import com.argent.aiyunzan.common.model.bean.info.EmptyInfo;
 import com.argent.aiyunzan.common.model.bean.response.MineSyRsp;
 import com.argent.aiyunzan.common.model.constant.EventBusTags;
+import com.argent.aiyunzan.common.model.constant.ModelInfo;
 import com.argent.aiyunzan.common.utils.WeiboDialogUtils;
 import com.bumptech.glide.Glide;
 import com.jess.arms.base.BaseFragment;
@@ -78,6 +80,7 @@ public class Mine_MainFragment extends BaseFragment<Mine_MainPresenter> implemen
     CircleImageView iv_avatar;
 
     private Dialog mWeiboDialog;
+    private String level;
 
     @OnClick({R.id.ll_menu1, R.id.ll_menu2, R.id.ll_menu3, R.id.ll_menu4, R.id.ll_menu5,
             R.id.ll_menu6, R.id.iv_click1, R.id.iv_click2, R.id.btn_wszl, R.id.rl_srmx,
@@ -88,16 +91,30 @@ public class Mine_MainFragment extends BaseFragment<Mine_MainPresenter> implemen
                 launchActivity(new Intent(getContext(), Mine_Menu1Activity.class));
                 break;
             case R.id.ll_menu2:
-                launchActivity(new Intent(getContext(), Mine_Menu2Activity.class));
+                if (level.equals("0") || level.equals("")) {
+                    Toast.makeText(mContext, "您还没有开通AI系统哦!", Toast.LENGTH_SHORT).show();
+                } else {
+                    launchActivity(new Intent(getContext(), Mine_Menu2Activity.class));
+                }
+
                 break;
             case R.id.ll_menu3:
-                launchActivity(new Intent(getContext(), Mine_Menu3Activity.class));
+                if (level.equals("0") || level.equals("")) {
+                    Toast.makeText(mContext, "您还没有开通AI系统哦!", Toast.LENGTH_SHORT).show();
+                } else {
+                    launchActivity(new Intent(getContext(), Mine_Menu3Activity.class));
+                }
+
                 break;
             case R.id.ll_menu4:
                 launchActivity(new Intent(getContext(), Mine_Menu4Activity.class));
                 break;
             case R.id.ll_menu5:
-                launchActivity(new Intent(getContext(), Home_Menu3Activity.class));
+                if (level.equals("0") || level.equals("")) {
+                    Toast.makeText(mContext, "您还没有开通AI系统哦!", Toast.LENGTH_SHORT).show();
+                } else {
+                    launchActivity(new Intent(getContext(), Home_Menu3Activity.class));
+                }
                 break;
             case R.id.ll_menu6:
                 launchActivity(new Intent(getContext(), Mine_Menu6Activity.class));
@@ -162,6 +179,8 @@ public class Mine_MainFragment extends BaseFragment<Mine_MainPresenter> implemen
 
     @Override
     public void initData(@Nullable Bundle savedInstanceState) {
+        ModelInfo modelInfo = new ModelInfo();
+        level = modelInfo.getLevel();
     }
 
     /**

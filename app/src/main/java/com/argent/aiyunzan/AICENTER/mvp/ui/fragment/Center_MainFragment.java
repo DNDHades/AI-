@@ -26,6 +26,7 @@ import com.argent.aiyunzan.common.model.bean.info.EmptyInfo;
 import com.argent.aiyunzan.common.model.bean.response.CenterHqsjRsp;
 import com.argent.aiyunzan.common.model.bean.response.CenterStartRsp;
 import com.argent.aiyunzan.common.model.constant.EventBusTags;
+import com.argent.aiyunzan.common.model.constant.ModelInfo;
 import com.argent.aiyunzan.common.utils.WeiboDialogUtils;
 import com.argent.aiyunzan.common.widget.Dialog.MessageDialog;
 import com.blankj.utilcode.util.ToastUtils;
@@ -76,6 +77,7 @@ public class Center_MainFragment extends BaseFragment<Center_MainPresenter> impl
     ImageView iv_runtop;
 
     private Dialog mWeiboDialog;
+    private String level;
 
     @OnClick({R.id.iv_click, R.id.rl_fxm,R.id.tv_czsm,R.id.iv_ljgm})
     void onClick(View view) {
@@ -84,7 +86,13 @@ public class Center_MainFragment extends BaseFragment<Center_MainPresenter> impl
                 mPresenter.loadStart();
                 break;
             case R.id.rl_fxm:
-                launchActivity(new Intent(getContext(), Home_Menu3Activity.class));
+                ModelInfo modelInfo = new ModelInfo();
+                level = modelInfo.getLevel();
+                if (level.equals("0")) {
+                    Toast.makeText(mContext, "您还没有开通AI系统哦!", Toast.LENGTH_SHORT).show();
+                } else {
+                    launchActivity(new Intent(getContext(), Home_Menu3Activity.class));
+                }
                 break;
             case R.id.tv_czsm:
                 new MessageDialog(getContext(), "操作说明",

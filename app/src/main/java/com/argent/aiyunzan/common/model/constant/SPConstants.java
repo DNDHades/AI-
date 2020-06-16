@@ -42,4 +42,7 @@ public interface SPConstants {
     //提现类型
     String TYPE = "type";
 
+    //购买台数
+    String LEVEL = "level";
+
 }

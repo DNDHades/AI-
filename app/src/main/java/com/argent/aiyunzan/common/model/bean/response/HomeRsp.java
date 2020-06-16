@@ -50,6 +50,16 @@ public class HomeRsp {
          */
 
         private String note;
+
+        public String getLevel() {
+            return level;
+        }
+
+        public void setLevel(String level) {
+            this.level = level;
+        }
+
+        private String level;
         private List<String> picarr;
         private List<ArrayBean> array;
 

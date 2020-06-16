@@ -21,7 +21,9 @@ import com.argent.aiyunzan.common.model.bean.response.HomeMenu4BuyWxRsp;
 import com.argent.aiyunzan.common.model.bean.response.HomeMenu4BuyZfbRsp;
 import com.argent.aiyunzan.common.model.bean.response.Home_Menu4HqxtjeRps;
 import com.argent.aiyunzan.common.model.constant.EventBusTags;
+import com.argent.aiyunzan.common.model.constant.SPConstants;
 import com.argent.aiyunzan.common.utils.WeiboDialogUtils;
+import com.blankj.utilcode.util.SPUtils;
 import com.blankj.utilcode.util.ToastUtils;
 import com.jess.arms.base.BaseActivity;
 import com.jess.arms.di.component.AppComponent;
@@ -227,6 +229,7 @@ public class Home_Menu4Activity extends BaseActivity<Home_Menu4Presenter> implem
     public void loadHqxtjeDataSuccess(Home_Menu4HqxtjeRps datas) {
         Home_Menu4HqxtjeRps.DataBean data = datas.getData();
         maxNum = data.getUse_num();
+        SPUtils.getInstance().put(SPConstants.LEVEL, data.getLevel() + "");
         tv_machine_max.setText("AI云赞自动点赞系统（限购" + data.getMachine_max() + "台)");
         tv_price.setText("￥" + data.getPrice() + "");
         price = data.getPrice();
