@@ -83,7 +83,7 @@ public class Home_Menu4Activity extends BaseActivity<Home_Menu4Presenter> implem
     ScrollView scrollView;
 
     private int maxNum = 1;//网络获取的最大值
-    private int num = 0;//当前产品的数量
+    private int num = 1;//当前产品的数量
     private double price;
     private Dialog mWeiboDialog;
     private int selectBuy = 1;//0:银行卡,1:支付宝,2:微信
@@ -230,6 +230,7 @@ public class Home_Menu4Activity extends BaseActivity<Home_Menu4Presenter> implem
         Home_Menu4HqxtjeRps.DataBean data = datas.getData();
         maxNum = data.getUse_num();
         SPUtils.getInstance().put(SPConstants.LEVEL, data.getLevel() + "");
+        Log.e("dnd0000=======",data.getLevel() + "");
         tv_machine_max.setText("AI云赞自动点赞系统（限购" + data.getMachine_max() + "台)");
         tv_price.setText("￥" + data.getPrice() + "");
         price = data.getPrice();
@@ -239,14 +240,17 @@ public class Home_Menu4Activity extends BaseActivity<Home_Menu4Presenter> implem
 
     @Override
     public void loadDataBuyWxSuccess(HomeMenu4BuyWxRsp data) {
+        mPresenter.loadHqxtjeData();
         Intent intent = new Intent(this, Home_Menu4BuyWxActivity.class);
         intent.putExtra("url", data.getData().getMweb_url());
         intent.putExtra("isZfb", false);
         startActivityForResult(intent, 6666);
+
     }
 
     @Override
     public void loadDataBuyZfbSuccess(HomeMenu4BuyZfbRsp data) {
+        mPresenter.loadHqxtjeData();
         Log.d(TAG, "loadDataBuyZfbSuccess: " + data.getData().getResult());
         Intent intent = new Intent(this, Home_Menu4BuyWxActivity.class);
         intent.putExtra("url", translation(data.getData().getResult()));

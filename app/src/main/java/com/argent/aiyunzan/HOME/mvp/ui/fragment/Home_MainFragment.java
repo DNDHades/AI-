@@ -31,6 +31,7 @@ import com.argent.aiyunzan.MAIN.mvp.ui.activity.LoginActivity;
 import com.argent.aiyunzan.MyApplication;
 import com.argent.aiyunzan.R;
 import com.argent.aiyunzan.common.model.bean.response.HomeRsp;
+import com.argent.aiyunzan.common.model.constant.ModelInfo;
 import com.argent.aiyunzan.common.model.constant.SPConstants;
 import com.argent.aiyunzan.common.utils.WeiboDialogUtils;
 import com.argent.aiyunzan.common.widget.AutoPollRecyclerView.AutoPollAdapter;
@@ -93,6 +94,8 @@ public class Home_MainFragment extends BaseFragment<Home_MainPresenter> implemen
                 launchActivity(new Intent(getContext(), Home_Menu2Activity.class));
                 break;
             case R.id.ll_menu3:
+                ModelInfo modelInfo = new ModelInfo();
+                level = modelInfo.getLevel();
                 if (level.equals("0")) {
                     Toast.makeText(mContext, "您还没有开通AI系统哦!", Toast.LENGTH_SHORT).show();
                 } else {

@@ -86,11 +86,13 @@ public class Mine_MainFragment extends BaseFragment<Mine_MainPresenter> implemen
             R.id.ll_menu6, R.id.iv_click1, R.id.iv_click2, R.id.btn_wszl, R.id.rl_srmx,
             R.id.rl_txjl, R.id.btn_out})
     void onClick(View view) {
+        ModelInfo modelInfo = new ModelInfo();
         switch (view.getId()) {
             case R.id.ll_menu1:
                 launchActivity(new Intent(getContext(), Mine_Menu1Activity.class));
                 break;
             case R.id.ll_menu2:
+                level = modelInfo.getLevel();
                 if (level.equals("0") || level.equals("")) {
                     Toast.makeText(mContext, "您还没有开通AI系统哦!", Toast.LENGTH_SHORT).show();
                 } else {
@@ -99,6 +101,7 @@ public class Mine_MainFragment extends BaseFragment<Mine_MainPresenter> implemen
 
                 break;
             case R.id.ll_menu3:
+                level = modelInfo.getLevel();
                 if (level.equals("0") || level.equals("")) {
                     Toast.makeText(mContext, "您还没有开通AI系统哦!", Toast.LENGTH_SHORT).show();
                 } else {
@@ -110,6 +113,7 @@ public class Mine_MainFragment extends BaseFragment<Mine_MainPresenter> implemen
                 launchActivity(new Intent(getContext(), Mine_Menu4Activity.class));
                 break;
             case R.id.ll_menu5:
+                level = modelInfo.getLevel();
                 if (level.equals("0") || level.equals("")) {
                     Toast.makeText(mContext, "您还没有开通AI系统哦!", Toast.LENGTH_SHORT).show();
                 } else {
