@@ -20,6 +20,7 @@ import com.argent.aiyunzan.common.model.bean.response.HomeMenu5Kfzx1Rsp;
 import com.argent.aiyunzan.common.model.bean.response.MineMenu6BbgxRsp;
 import com.argent.aiyunzan.common.model.constant.SPConstants;
 import com.argent.aiyunzan.common.utils.CommonUtils;
+import com.argent.aiyunzan.common.utils.JcgxDialog;
 import com.argent.aiyunzan.common.utils.WeiboDialogUtils;
 import com.blankj.utilcode.util.AppUtils;
 import com.blankj.utilcode.util.SPUtils;
@@ -40,12 +41,6 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.OnClick;
-import constant.UiType;
-import listener.Md5CheckResultListener;
-import listener.UpdateDownloadListener;
-import model.UiConfig;
-import model.UpdateConfig;
-import update.UpdateAppUtils;
 
 import static com.argent.aiyunzan.MyApplication.getContext;
 import static com.jess.arms.utils.Preconditions.checkNotNull;
@@ -203,6 +198,9 @@ public class Mine_Menu6Activity extends BaseActivity<Mine_Menu6Presenter> implem
         tv_wx2.setText(data.getWxtwo() + "");
     }
 
+    private JcgxDialog jcgxDialog;
+
+
     @Override
     public void loadClickSuccess(MineMenu6BbgxRsp datas) {
         MineMenu6BbgxRsp.DataBean data = datas.getData();
@@ -217,50 +215,17 @@ public class Mine_Menu6Activity extends BaseActivity<Mine_Menu6Presenter> implem
                 ArmsUtils.makeText(getContext(), "当前已是最新版本");
                 break;
             case -1://更新版本
-                UpdateConfig updateConfig = new UpdateConfig();
-                updateConfig.setCheckWifi(true);
-                updateConfig.setNeedCheckMd5(true);
-                updateConfig.setForce(true);
-                updateConfig.setNotifyImgRes(R.drawable.splash_logo);
-
-                UiConfig uiConfig = new UiConfig();
-                uiConfig.setUiType(UiType.PLENTIFUL);
-
-                UpdateAppUtils
-                        .getInstance()
-                        .apkUrl(android_url)
-                        .updateTitle("发现新版本V" + android_number)
-                        .updateContent("")
-                        .uiConfig(uiConfig)
-                        .updateConfig(updateConfig)
-                        .setMd5CheckResultListener(new Md5CheckResultListener() {
-                            @Override
-                            public void onResult(boolean result) {
-                                // true：检验通过，false：检验失败
-                            }
-                        })
-                        .setUpdateDownloadListener(new UpdateDownloadListener() {
-                            @Override
-                            public void onStart() {
-
-                            }
-
-                            @Override
-                            public void onDownload(int progress) {
-
-                            }
-
-                            @Override
-                            public void onFinish() {
-
-                            }
-
-                            @Override
-                            public void onError(@NotNull Throwable e) {
-
-                            }
-                        })
-                        .update();
+                jcgxDialog = new JcgxDialog(this);
+                jcgxDialog.showCustomizeDialog(this, new JcgxDialog.Listener() {
+                    @Override
+                    public void onClick() {
+                        finish();
+                        Intent intent = new Intent(Intent.ACTION_VIEW);
+                        intent.addCategory(Intent.CATEGORY_BROWSABLE);
+                        intent.setData(Uri.parse(android_url));
+                        startActivity(intent);
+                    }
+                });
                 break;
         }
 

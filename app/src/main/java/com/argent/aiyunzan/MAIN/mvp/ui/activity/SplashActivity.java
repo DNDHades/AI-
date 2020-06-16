@@ -2,6 +2,7 @@ package com.argent.aiyunzan.MAIN.mvp.ui.activity;
 
 import android.app.Dialog;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
@@ -10,31 +11,20 @@ import android.text.TextUtils;
 import android.view.Window;
 import android.view.WindowManager;
 
+import com.argent.aiyunzan.MAIN.di.component.DaggerSplashComponent;
+import com.argent.aiyunzan.MAIN.mvp.contract.SplashContract;
+import com.argent.aiyunzan.MAIN.mvp.presenter.SplashPresenter;
 import com.argent.aiyunzan.R;
 import com.argent.aiyunzan.common.model.bean.response.MineMenu6BbgxRsp;
 import com.argent.aiyunzan.common.model.constant.ModelInfo;
 import com.argent.aiyunzan.common.utils.CommonUtils;
+import com.argent.aiyunzan.common.utils.JcgxDialog;
 import com.argent.aiyunzan.common.utils.WeiboDialogUtils;
 import com.blankj.utilcode.util.AppUtils;
 import com.jess.arms.base.BaseActivity;
 import com.jess.arms.di.component.AppComponent;
 import com.jess.arms.utils.ArmsUtils;
 
-import com.argent.aiyunzan.MAIN.di.component.DaggerSplashComponent;
-import com.argent.aiyunzan.MAIN.mvp.contract.SplashContract;
-import com.argent.aiyunzan.MAIN.mvp.presenter.SplashPresenter;
-
-
-import org.jetbrains.annotations.NotNull;
-
-import constant.UiType;
-import listener.Md5CheckResultListener;
-import listener.UpdateDownloadListener;
-import model.UiConfig;
-import model.UpdateConfig;
-import update.UpdateAppUtils;
-
-import static com.argent.aiyunzan.MyApplication.getContext;
 import static com.jess.arms.utils.Preconditions.checkNotNull;
 
 
@@ -54,6 +44,8 @@ public class SplashActivity extends BaseActivity<SplashPresenter> implements Spl
 
     private Handler handler = new Handler();
     private Dialog mWeiboDialog;
+
+    private JcgxDialog jcgxDialog;
 
     @Override
     public void setupActivityComponent(@NonNull AppComponent appComponent) {
@@ -145,50 +137,17 @@ public class SplashActivity extends BaseActivity<SplashPresenter> implements Spl
                 isJump();
                 break;
             case -1://更新版本
-                UpdateConfig updateConfig = new UpdateConfig();
-                updateConfig.setCheckWifi(true);
-                updateConfig.setNeedCheckMd5(true);
-                updateConfig.setForce(true);
-                updateConfig.setNotifyImgRes(R.drawable.splash_logo);
-
-                UiConfig uiConfig = new UiConfig();
-                uiConfig.setUiType(UiType.PLENTIFUL);
-
-                UpdateAppUtils
-                        .getInstance()
-                        .apkUrl(android_url)
-                        .updateTitle("发现新版本V" + android_number)
-                        .updateContent("")
-                        .uiConfig(uiConfig)
-                        .updateConfig(updateConfig)
-                        .setMd5CheckResultListener(new Md5CheckResultListener() {
-                            @Override
-                            public void onResult(boolean result) {
-                                // true：检验通过，false：检验失败
-                            }
-                        })
-                        .setUpdateDownloadListener(new UpdateDownloadListener() {
-                            @Override
-                            public void onStart() {
-
-                            }
-
-                            @Override
-                            public void onDownload(int progress) {
-
-                            }
-
-                            @Override
-                            public void onFinish() {
-
-                            }
-
-                            @Override
-                            public void onError(@NotNull Throwable e) {
-
-                            }
-                        })
-                        .update();
+                jcgxDialog = new JcgxDialog(this);
+                jcgxDialog.showCustomizeDialog(this, new JcgxDialog.Listener() {
+                    @Override
+                    public void onClick() {
+                        finish();
+                        Intent intent = new Intent(Intent.ACTION_VIEW);
+                        intent.addCategory(Intent.CATEGORY_BROWSABLE);
+                        intent.setData(Uri.parse(android_url));
+                        startActivity(intent);
+                    }
+                });
                 break;
         }
     }
