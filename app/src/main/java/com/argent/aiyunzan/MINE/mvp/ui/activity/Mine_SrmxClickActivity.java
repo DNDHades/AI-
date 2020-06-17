@@ -124,7 +124,7 @@ public class Mine_SrmxClickActivity extends BaseActivity<Mine_SrmxClickPresenter
             protected void convert(@NonNull BaseViewHolder helper, MineSrmxClickRsp.DataBean.Datas item) {
                 helper.setText(R.id.tv_types, item.getTypes() + "");
                 helper.setText(R.id.tv_time, item.getTime() + "");
-                helper.setText(R.id.tv_money, "+" + item.getMoney() + "");
+                helper.setText(R.id.tv_money, "+" + item.getMoney() + "元");
             }
         };
         adapter.setEmptyView(R.layout.empty_box, rv_content);

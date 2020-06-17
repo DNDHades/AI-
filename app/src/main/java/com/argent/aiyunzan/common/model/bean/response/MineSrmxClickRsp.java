@@ -69,15 +69,15 @@ public class MineSrmxClickRsp {
 
         public static class Datas {
 
-            private double money;
+            private String money;
             private String time;
             private String types;
 
-            public double getMoney() {
+            public String getMoney() {
                 return money;
             }
 
-            public void setMoney(double money) {
+            public void setMoney(String money) {
                 this.money = money;
             }
 
