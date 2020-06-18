@@ -7,9 +7,11 @@ import android.os.Message;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -36,11 +38,16 @@ import com.bumptech.glide.Glide;
 import com.jess.arms.base.BaseFragment;
 import com.jess.arms.di.component.AppComponent;
 import com.jess.arms.utils.ArmsUtils;
+import com.scwang.smartrefresh.layout.SmartRefreshLayout;
+import com.scwang.smartrefresh.layout.api.RefreshLayout;
+import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 
 import org.simple.eventbus.Subscriber;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 import butterknife.OnClick;
+import butterknife.Unbinder;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 import static com.jess.arms.utils.Preconditions.checkNotNull;
@@ -78,6 +85,11 @@ public class Mine_MainFragment extends BaseFragment<Mine_MainPresenter> implemen
     TextView tv_werden;
     @BindView(R.id.iv_avatar)
     CircleImageView iv_avatar;
+    @BindView(R.id.my_relativelayout)
+    RelativeLayout myRelativelayout;
+    @BindView(R.id.my_smartRefreshLayout)
+    SmartRefreshLayout mySmartRefreshLayout;
+    Unbinder unbinder;
 
     private Dialog mWeiboDialog;
     private String level;
@@ -185,7 +197,18 @@ public class Mine_MainFragment extends BaseFragment<Mine_MainPresenter> implemen
     public void initData(@Nullable Bundle savedInstanceState) {
         ModelInfo modelInfo = new ModelInfo();
         level = modelInfo.getLevel();
+        initListenr();
     }
+
+    private void initListenr() {
+        mySmartRefreshLayout.setOnRefreshListener(new OnRefreshListener() { //下拉刷新
+            @Override
+            public void onRefresh(RefreshLayout refreshlayout) {
+                mPresenter.loadData();
+            }
+        });
+    }
+
 
     /**
      * 通过此方法可以使 Fragment 能够与外界做一些交互和通信, 比如说外部的 Activity 想让自己持有的某个 Fragment 对象执行一些方法,
@@ -268,5 +291,14 @@ public class Mine_MainFragment extends BaseFragment<Mine_MainPresenter> implemen
         tv_werden.setText(data.getWerden() + "");
         Glide.with(getContext()).load(data.getAvatar())
                 .into(iv_avatar);
+        mySmartRefreshLayout.finishRefresh();
+
+    }
+
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        unbinder.unbind();
     }
 }

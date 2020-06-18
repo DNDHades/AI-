@@ -60,14 +60,15 @@
                     android:textSize="15sp"
                     tools:text="xzcxzc" />
 
-                <ImageView
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:layout_marginRight="14.5dp"
                     android:scaleType="fitXY"
-                    android:src="@drawable/home_menu5_1" />
+                    android:text="点击复制QQ号"
+                    android:textColor="#ff0a23"/>
             </RelativeLayout>
 
             <View
@@ -100,14 +101,15 @@
                     android:textSize="15sp"
                     tools:text="sadas" />
 
-                <ImageView
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:layout_marginRight="14.5dp"
                     android:scaleType="fitXY"
-                    android:src="@drawable/home_menu5_1" />
+                    android:text="点击复制QQ号"
+                    android:textColor="#ff0a23"/>
             </RelativeLayout>
 
             <RelativeLayout
@@ -213,14 +215,15 @@
                     android:textSize="15sp"
                     tools:text="4354645234" />
 
-                <ImageView
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:layout_marginRight="14.5dp"
                     android:scaleType="fitXY"
-                    android:src="@drawable/home_menu5_1" />
+                    android:text="点击复制QQ号"
+                    android:textColor="#ff0a23"/>
             </RelativeLayout>
 
             <View

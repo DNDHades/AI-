@@ -272,12 +272,6 @@ public class Center_MainFragment extends BaseFragment<Center_MainPresenter> impl
             iv_runtop.setVisibility(View.VISIBLE);
             Glide.with(getContext()).load(R.drawable.center_main_14).into(iv_runbottom);
             Glide.with(getContext()).load(R.drawable.f).into(iv_runtop);
-            new Handler().postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    jumpDouyin();
-                }
-            }, 600);
         }
 
     }

@@ -1,6 +1,7 @@
 package com.argent.aiyunzan.HOME.mvp.presenter;
 
 import android.app.Application;
+import android.widget.Toast;
 
 import com.argent.aiyunzan.common.model.bean.response.HomeMenu4BuyWxRsp;
 import com.argent.aiyunzan.common.model.bean.response.HomeMenu4BuyZfbRsp;
@@ -77,6 +78,8 @@ public class Home_Menu4Presenter extends BasePresenter<Home_Menu4Contract.Model,
                     public void onNext(Home_Menu4HqxtjeRps data) {
                         if (data.getCode() == 200) {
                             mRootView.loadHqxtjeDataSuccess(data);
+                        } else if (data.getCode() == 302){
+                            Toast.makeText(mApplication, data.getMsg() , Toast.LENGTH_LONG).show();
                         }
                     }
                 });
@@ -90,6 +93,8 @@ public class Home_Menu4Presenter extends BasePresenter<Home_Menu4Contract.Model,
                     public void onNext(HomeMenu4BuyWxRsp data) {
                         if (data.getCode().equals("200")) {
                             mRootView.loadDataBuyWxSuccess(data);
+                        }else if (data.getCode().equals("302")){
+                            Toast.makeText(mApplication, data.getMsg(), Toast.LENGTH_LONG).show();
                         }
                     }
                 });
@@ -103,6 +108,8 @@ public class Home_Menu4Presenter extends BasePresenter<Home_Menu4Contract.Model,
                     public void onNext(HomeMenu4BuyZfbRsp data) {
                         if (data.getCode()==200) {
                             mRootView.loadDataBuyZfbSuccess(data);
+                        } else if (data.getCode() == 302){
+                            Toast.makeText(mApplication, data.getMsg(), Toast.LENGTH_LONG).show();
                         }
                     }
                 });

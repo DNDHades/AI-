@@ -1,47 +1,35 @@
 package com.argent.aiyunzan.HOME.mvp.ui.activity;
 
 import android.app.Dialog;
+import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
-import android.graphics.Bitmap;
-import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
-import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.argent.aiyunzan.HOME.di.component.DaggerHome_Menu5Component;
+import com.argent.aiyunzan.HOME.mvp.contract.Home_Menu5Contract;
+import com.argent.aiyunzan.HOME.mvp.presenter.Home_Menu5Presenter;
 import com.argent.aiyunzan.R;
 import com.argent.aiyunzan.common.model.bean.response.HomeMenu5Kfzx1Rsp;
 import com.argent.aiyunzan.common.model.constant.SPConstants;
 import com.argent.aiyunzan.common.utils.WeiboDialogUtils;
 import com.blankj.utilcode.util.SPUtils;
-import com.blankj.utilcode.util.ToastUtils;
 import com.jess.arms.base.BaseActivity;
 import com.jess.arms.di.component.AppComponent;
 import com.jess.arms.utils.ArmsUtils;
 
-import com.argent.aiyunzan.HOME.di.component.DaggerHome_Menu5Component;
-import com.argent.aiyunzan.HOME.mvp.contract.Home_Menu5Contract;
-import com.argent.aiyunzan.HOME.mvp.presenter.Home_Menu5Presenter;
-
-
-import org.w3c.dom.Text;
-
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.OnClick;
 
-import static com.argent.aiyunzan.MyApplication.getContext;
 import static com.jess.arms.utils.Preconditions.checkNotNull;
 
 
@@ -164,12 +152,16 @@ public class Home_Menu5Activity extends BaseActivity<Home_Menu5Presenter> implem
 
     private void startQQ(String qq) {
 
-        if (isQQInstall(getContext())) {
-            final String qqUrl = "mqqwpa://im/chat?chat_type=wpa&uin=" + qq;
-            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(qqUrl)));
-        } else {
-            ToastUtils.showShort("请安装QQ客户端");
-        }
+        ClipboardManager cm = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+        cm.setText(qq);
+        Toast.makeText(this, "复制成功", Toast.LENGTH_LONG).show();
+
+//        if (isQQInstall(getContext())) {
+//            final String qqUrl = "mqqwpa://im/chat?chat_type=wpa&uin=" + qq;
+//            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(qqUrl)));
+//        } else {
+//            ToastUtils.showShort("请安装QQ客户端");
+//        }
 
     }
 

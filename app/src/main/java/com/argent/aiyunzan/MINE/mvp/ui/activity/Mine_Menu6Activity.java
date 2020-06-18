@@ -1,6 +1,7 @@
 package com.argent.aiyunzan.MINE.mvp.ui.activity;
 
 import android.app.Dialog;
+import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
@@ -103,13 +104,16 @@ public class Mine_Menu6Activity extends BaseActivity<Mine_Menu6Presenter> implem
     }
 
     private void startQQ(String qq) {
+        ClipboardManager cm = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+        cm.setText(qq);
+        Toast.makeText(this, "复制成功", Toast.LENGTH_LONG).show();
 
-        if (isQQInstall(getContext())) {
-            final String qqUrl = "mqqwpa://im/chat?chat_type=wpa&uin=" + qq;
-            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(qqUrl)));
-        } else {
-            ToastUtils.showShort("请安装QQ客户端");
-        }
+//        if (isQQInstall(getContext())) {
+//            final String qqUrl = "mqqwpa://im/chat?chat_type=wpa&uin=" + qq;
+//            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(qqUrl)));
+//        } else {
+//            ToastUtils.showShort("请安装QQ客户端");
+//        }
 
     }
 

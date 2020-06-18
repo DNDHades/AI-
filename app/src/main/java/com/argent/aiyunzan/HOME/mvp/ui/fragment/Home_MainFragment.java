@@ -42,6 +42,9 @@ import com.bumptech.glide.Glide;
 import com.jess.arms.base.BaseFragment;
 import com.jess.arms.di.component.AppComponent;
 import com.jess.arms.utils.ArmsUtils;
+import com.scwang.smartrefresh.layout.SmartRefreshLayout;
+import com.scwang.smartrefresh.layout.api.RefreshLayout;
+import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
 import com.youth.banner.loader.ImageLoaderInterface;
@@ -50,7 +53,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 import butterknife.OnClick;
+import butterknife.Unbinder;
 
 import static com.jess.arms.utils.Preconditions.checkNotNull;
 
@@ -77,6 +82,9 @@ public class Home_MainFragment extends BaseFragment<Home_MainPresenter> implemen
     ScrollView scrollView;
     @BindView(R.id.tv_note)
     TextView tv_note;
+    @BindView(R.id.sy_smartRefreshlayout)
+    SmartRefreshLayout sySmartRefreshlayout;
+    Unbinder unbinder;
 
     private List<String> imageUrls = new ArrayList<>();
     private List<String> titles = new ArrayList<>();
@@ -151,6 +159,16 @@ public class Home_MainFragment extends BaseFragment<Home_MainPresenter> implemen
     public void initData(@Nullable Bundle savedInstanceState) {
         initView();
         loadHome();
+        initListenr();
+    }
+
+    private void initListenr() {
+        sySmartRefreshlayout.setOnRefreshListener(new OnRefreshListener() {
+            @Override
+            public void onRefresh(@NonNull RefreshLayout refreshLayout) {
+                mPresenter.loadHome();
+            }
+        });
     }
 
     private void loadHome() {
@@ -277,7 +295,7 @@ public class Home_MainFragment extends BaseFragment<Home_MainPresenter> implemen
         }
 
         initRecyclerView(titles);
-
+        sySmartRefreshlayout.finishRefresh();
     }
 
     @Override
@@ -288,4 +306,17 @@ public class Home_MainFragment extends BaseFragment<Home_MainPresenter> implemen
         ((Activity) getContext()).finish();
     }
 
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        // TODO: inflate a fragment view
+        View rootView = super.onCreateView(inflater, container, savedInstanceState);
+        unbinder = ButterKnife.bind(this, rootView);
+        return rootView;
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        unbinder.unbind();
+    }
 }

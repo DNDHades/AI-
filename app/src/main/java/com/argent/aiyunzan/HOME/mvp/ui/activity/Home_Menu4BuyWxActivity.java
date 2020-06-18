@@ -264,6 +264,7 @@ public class Home_Menu4BuyWxActivity extends BaseActivity<Home_Menu4BuyWxPresent
                     callBackResult(object);
                 }
             });
+            finish();
         }
     }
 

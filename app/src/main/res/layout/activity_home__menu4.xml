@@ -73,7 +73,7 @@
                     android:textSize="15sp" />
 
                 <View
-                    android:layout_width="51dp"
+                    android:layout_width="40dp"
                     android:layout_height="1dp"
                     android:layout_marginLeft="243dp"
                     android:layout_marginTop="45dp"

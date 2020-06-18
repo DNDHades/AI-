@@ -1,102 +1,115 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#160A6A"
     android:orientation="vertical">
 
-    <ScrollView
-        android:id="@+id/scrollView"
+    <com.scwang.smartrefresh.layout.SmartRefreshLayout
+        android:id="@+id/sy_smartRefreshlayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:overScrollMode="never">
+        android:layout_height="match_parent">
 
-        <LinearLayout
+        <com.scwang.smartrefresh.layout.header.ClassicsHeader
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:descendantFocusability="blocksDescendants"
-            android:focusable="true"
-            android:focusableInTouchMode="true"
-            android:orientation="vertical">
+            app:srlAccentColor="@color/white" />
 
-            <com.youth.banner.Banner
-                android:id="@+id/banner"
+        <ScrollView
+            android:id="@+id/scrollView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:overScrollMode="never">
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="160dp"
-                app:image_scale_type="fit_xy" />
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:background="#4071EE">
-
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="18.5dp"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="21dp"
-                    android:src="@drawable/main_laba" />
-
-                <TextView
-                    android:layout_width="400dp"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="51dp"
-                    android:layout_marginRight="20dp"
-                    android:text="公告："
-                    android:textColor="#ffffffff"
-                    android:textSize="14sp" />
-
-
-                <TextView
-                    android:id="@+id/tv_note"
-                    android:layout_width="400dp"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="91dp"
-                    android:layout_marginRight="20dp"
-                    android:ellipsize="marquee"
-                    android:marqueeRepeatLimit="marquee_forever"
-                    android:singleLine="true"
-                    android:textColor="#ffffffff"
-                    android:textSize="14sp" />
-
-            </RelativeLayout>
-
-            <!--菜单-->
-            <include layout="@layout/include_fragment_main_menutop" />
-
-            <Button
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:background="@drawable/main_jrgm"
-                android:text="今日购买用户"
-                android:textColor="@color/white" />
+                android:descendantFocusability="blocksDescendants"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:orientation="vertical">
 
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingBottom="22dp">
-
-                <ImageView
+                <com.youth.banner.Banner
+                    android:id="@+id/banner"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/main_bottom"
-                    android:scaleType="center" />
+                    android:layout_height="160dp"
+                    app:image_scale_type="fit_xy" />
 
-                <com.argent.aiyunzan.common.widget.AutoPollRecyclerView.AutoPollRecyclerView
-                    android:id="@+id/rv_content"
+                <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="156dp"
-                    android:layout_marginLeft="125dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginRight="22dp" />
+                    android:layout_height="40dp"
+                    android:background="#4071EE">
 
-            </RelativeLayout>
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="18.5dp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="21dp"
+                        android:src="@drawable/main_laba" />
 
-        </LinearLayout>
-    </ScrollView>
+                    <TextView
+                        android:layout_width="400dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="51dp"
+                        android:layout_marginRight="20dp"
+                        android:text="公告："
+                        android:textColor="#ffffffff"
+                        android:textSize="14sp" />
+
+
+                    <TextView
+                        android:id="@+id/tv_note"
+                        android:layout_width="400dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="91dp"
+                        android:layout_marginRight="20dp"
+                        android:ellipsize="marquee"
+                        android:marqueeRepeatLimit="marquee_forever"
+                        android:singleLine="true"
+                        android:textColor="#ffffffff"
+                        android:textSize="14sp" />
+
+                </RelativeLayout>
+
+                <!--菜单-->
+                <include layout="@layout/include_fragment_main_menutop" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/main_jrgm"
+                    android:text="今日购买用户"
+                    android:textColor="@color/white" />
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="22dp">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/main_bottom"
+                        android:scaleType="center" />
+
+                    <com.argent.aiyunzan.common.widget.AutoPollRecyclerView.AutoPollRecyclerView
+                        android:id="@+id/rv_content"
+                        android:layout_width="match_parent"
+                        android:layout_height="156dp"
+                        android:layout_marginLeft="125dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="22dp" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+        </ScrollView>
+
+
+    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+
 </LinearLayout>

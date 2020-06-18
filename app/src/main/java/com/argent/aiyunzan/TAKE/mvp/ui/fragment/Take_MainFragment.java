@@ -227,6 +227,8 @@ public class Take_MainFragment extends BaseFragment<Take_MainPresenter> implemen
                     break;
             }
             lp_pan.startAnim();
+        } else {
+            Toast.makeText(mContext, "每分享3个好友才能进行一次抽奖哦！", Toast.LENGTH_LONG).show();
         }
     }
 }
