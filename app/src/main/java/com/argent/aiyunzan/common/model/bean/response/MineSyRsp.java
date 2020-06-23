@@ -55,15 +55,15 @@ public class MineSyRsp {
          */
 
         private String nickname;
-        private int uid;
+        private String uid;
         private String mobile;
-        private int fid;
+        private String fid;
         private String avatar;
         private String change;
-        private int level;
+        private String level;
         private String all_shou;
         private String day_shou;
-        private int werden;
+        private String werden;
 
         public String getNickname() {
             return nickname;
@@ -73,11 +73,11 @@ public class MineSyRsp {
             this.nickname = nickname;
         }
 
-        public int getUid() {
+        public String getUid() {
             return uid;
         }
 
-        public void setUid(int uid) {
+        public void setUid(String uid) {
             this.uid = uid;
         }
 
@@ -89,11 +89,11 @@ public class MineSyRsp {
             this.mobile = mobile;
         }
 
-        public int getFid() {
+        public String getFid() {
             return fid;
         }
 
-        public void setFid(int fid) {
+        public void setFid(String fid) {
             this.fid = fid;
         }
 
@@ -113,11 +113,11 @@ public class MineSyRsp {
             this.change = change;
         }
 
-        public int getLevel() {
+        public String getLevel() {
             return level;
         }
 
-        public void setLevel(int level) {
+        public void setLevel(String level) {
             this.level = level;
         }
 
@@ -137,11 +137,11 @@ public class MineSyRsp {
             this.day_shou = day_shou;
         }
 
-        public int getWerden() {
+        public String getWerden() {
             return werden;
         }
 
-        public void setWerden(int werden) {
+        public void setWerden(String werden) {
             this.werden = werden;
         }
     }

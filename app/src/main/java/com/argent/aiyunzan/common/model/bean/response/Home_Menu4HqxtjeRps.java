@@ -50,18 +50,18 @@ public class Home_Menu4HqxtjeRps {
          * info_id : 0
          */
 
-        private double price;
+        private int price;
         private int cost_price;
         private int machine_max;
         private int level;
         private int use_num;
         private int info_id;
 
-        public double getPrice() {
+        public int getPrice() {
             return price;
         }
 
-        public void setPrice(double price) {
+        public void setPrice(int price) {
             this.price = price;
         }
 

@@ -64,7 +64,7 @@ public class MineSrmxRsp {
 
         private String myprofit;
         private String all_profit;
-        private int werden;
+        private String werden;
         private String click;
         private String share;
         private String team;
@@ -87,11 +87,11 @@ public class MineSrmxRsp {
             this.all_profit = all_profit;
         }
 
-        public int getWerden() {
+        public String getWerden() {
             return werden;
         }
 
-        public void setWerden(int werden) {
+        public void setWerden(String werden) {
             this.werden = werden;
         }
 

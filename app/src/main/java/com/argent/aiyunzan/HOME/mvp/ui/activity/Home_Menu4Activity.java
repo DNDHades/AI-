@@ -84,7 +84,7 @@ public class Home_Menu4Activity extends BaseActivity<Home_Menu4Presenter> implem
 
     private int maxNum = 1;//网络获取的最大值
     private int num = 1;//当前产品的数量
-    private double price;
+    private int price;
     private Dialog mWeiboDialog;
     private int selectBuy = 1;//0:银行卡,1:支付宝,2:微信
 
@@ -162,7 +162,7 @@ public class Home_Menu4Activity extends BaseActivity<Home_Menu4Presenter> implem
     private void scalcSum() {
         String sumStr = tv_sum.getText().toString().trim();
         int sum = Integer.valueOf(sumStr);
-        double value = sum * price;
+        int value = sum * price;
         tv_zje.setText("总金额：￥" + value + "");
     }
 
@@ -230,7 +230,6 @@ public class Home_Menu4Activity extends BaseActivity<Home_Menu4Presenter> implem
         Home_Menu4HqxtjeRps.DataBean data = datas.getData();
         maxNum = data.getUse_num();
         SPUtils.getInstance().put(SPConstants.LEVEL, data.getLevel() + "");
-        Log.e("dnd0000=======",data.getLevel() + "");
         tv_machine_max.setText("AI云赞自动点赞系统（限购" + data.getMachine_max() + "台)");
         tv_price.setText("￥" + data.getPrice() + "");
         price = data.getPrice();
